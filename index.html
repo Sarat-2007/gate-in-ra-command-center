@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GATE 2027 IN & RA Master Study Studio (20-Week)</title>
+  <meta name="description" content="Minimalist, distraction-free 20-week preparation studio strictly for GATE Instrumentation (IN) and Robotics & Automation (RA).">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- KaTeX for Fast Mathematical Typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       Top Header Bar: Live Exam Countdown & Foreground Active Clock
+       ======================================================================== -->
+  <header class="header-bar">
+    <div class="countdown-badge">
+      <span>🎯 GATE 2027:</span>
+      <span>Day <span id="headerDayElapsed" class="highlight">1</span> of 140</span>
+      <span style="color:var(--text-muted);">|</span>
+      <span>⏳ <span id="headerDaysRemaining" class="highlight">139</span> Days Remaining</span>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:16px;">
+      <div id="activeTimerDisplay" class="timer-badge">
+        ⏱️ Active Today: 00h 00m 00s
+      </div>
+      <span id="headerPacingStatus" class="status-badge status-on-track">🟢 On Track</span>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       Minimalist Sidebar: Step-by-Step Navigation
+       ======================================================================== -->
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">🎯 GATE IN & RA</div>
+      <div class="sidebar-subtitle">20-Week Focused Prep</div>
+    </div>
+
+    <div class="sidebar-menu">
+      <div class="menu-category">Daily Study Flow</div>
+      <div class="nav-item active" data-view="step1" onclick="AppState.switchView('step1')">
+        <span>🌅</span> <span class="nav-text">Step 1: 5-Min Recall</span>
+      </div>
+      <div class="nav-item" data-view="step2" onclick="AppState.switchView('step2')">
+        <span>📺</span> <span class="nav-text">Step 2: Video & Theory</span>
+      </div>
+      <div class="nav-item" data-view="step3" onclick="AppState.switchView('step3')">
+        <span>🧮</span> <span class="nav-text">Step 3: Interactive PYQ</span>
+      </div>
+      <div class="nav-item" data-view="step4" onclick="AppState.switchView('step4')">
+        <span>✅</span> <span class="nav-text">Step 4: Daily Log</span>
+      </div>
+
+      <div class="menu-category">Curriculum & Stats</div>
+      <div class="nav-item" data-view="syllabus" onclick="AppState.switchView('syllabus')">
+        <span>📚</span> <span class="nav-text">20-Week Syllabus</span>
+      </div>
+      <div class="nav-item" data-view="progress" onclick="AppState.switchView('progress')">
+        <span>📊</span> <span class="nav-text">Progress & Mistakes</span>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="btn-secondary" style="width:100%; font-size:0.8rem;" onclick="AppState.toggleCalc()">
+        🖩 TCS iON Calculator
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       Main Content: 1-Step-At-A-Time Screen Views
+       ======================================================================== -->
+  <main class="main-wrapper">
+    <!-- View: Step 1 -->
+    <section id="view-step1" class="view-section active">
+      <div id="step1Content"></div>
+    </section>
+
+    <!-- View: Step 2 -->
+    <section id="view-step2" class="view-section">
+      <div id="step2Content"></div>
+    </section>
+
+    <!-- View: Step 3 -->
+    <section id="view-step3" class="view-section">
+      <div id="step3Content"></div>
+    </section>
+
+    <!-- View: Step 4 -->
+    <section id="view-step4" class="view-section">
+      <div id="step4Content"></div>
+    </section>
+
+    <!-- View: 20-Week Syllabus -->
+    <section id="view-syllabus" class="view-section">
+      <div id="syllabusContent"></div>
+    </section>
+
+    <!-- View: Progress & Mistakes -->
+    <section id="view-progress" class="view-section">
+      <div id="progressContent"></div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       TCS iON Virtual Scientific Calculator Modal
+       ======================================================================== -->
+  <div id="calcModal" class="calc-modal">
+    <div class="calc-header">
+      <span>🖩 TCS iON Virtual Calculator</span>
+      <span style="cursor:pointer;" onclick="AppState.toggleCalc()">✖</span>
+    </div>
+    <div id="calcScreen" class="calc-display">0</div>
+    <div class="calc-grid">
+      <button class="calc-btn action" onclick="AppState.calcClear()">C</button>
+      <button class="calc-btn action" onclick="AppState.calcDel()">DEL</button>
+      <button class="calc-btn op" onclick="AppState.calcOp('(')">(</button>
+      <button class="calc-btn op" onclick="AppState.calcOp(')')">)</button>
+      <button class="calc-btn op" onclick="AppState.calcOp('/')">/</button>
+
+      <button class="calc-btn" onclick="AppState.calcTrig('sin')">sin</button>
+      <button class="calc-btn" onclick="AppState.calcTrig('cos')">cos</button>
+      <button class="calc-btn" onclick="AppState.calcTrig('tan')">tan</button>
+      <button class="calc-btn" onclick="AppState.calcSingle('sqrt')">√</button>
+      <button class="calc-btn op" onclick="AppState.calcOp('*')">*</button>
+
+      <button class="calc-btn" onclick="AppState.calcAppend('7')">7</button>
+      <button class="calc-btn" onclick="AppState.calcAppend('8')">8</button>
+      <button class="calc-btn" onclick="AppState.calcAppend('9')">9</button>
+      <button class="calc-btn" onclick="AppState.calcSingle('ln')">ln</button>
+      <button class="calc-btn op" onclick="AppState.calcOp('-')">-</button>
+
+      <button class="calc-btn" onclick="AppState.calcAppend('4')">4</button>
+      <button class="calc-btn" onclick="AppState.calcAppend('5')">5</button>
+      <button class="calc-btn" onclick="AppState.calcAppend('6')">6</button>
+      <button class="calc-btn" onclick="AppState.calcSingle('log10')">log</button>
+      <button class="calc-btn op" onclick="AppState.calcOp('+')">+</button>
+
+      <button class="calc-btn" onclick="AppState.calcAppend('1')">1</button>
+      <button class="calc-btn" onclick="AppState.calcAppend('2')">2</button>
+      <button class="calc-btn" onclick="AppState.calcAppend('3')">3</button>
+      <button class="calc-btn" onclick="AppState.calcSingle('exp')">e^x</button>
+      <button class="calc-btn op" onclick="AppState.calcOp('^')">^</button>
+
+      <button class="calc-btn" onclick="AppState.calcAppend('0')">0</button>
+      <button class="calc-btn" onclick="AppState.calcAppend('.')">.</button>
+      <button class="calc-btn" onclick="AppState.calcAppend('3.14159265')">π</button>
+      <button class="calc-btn" onclick="AppState.calcAppend('2.71828182')">e</button>
+      <button class="calc-btn action" style="background:var(--accent-primary);" onclick="AppState.calcEval()">=</button>
+    </div>
+  </div>
+
+  <!-- Data & Application Logic -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
