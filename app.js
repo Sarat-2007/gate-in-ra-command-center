@@ -13,12 +13,13 @@ const AppState = {
   activeSecondsToday: 0,
   completedTopics: new Set(),
   mistakesQueue: [], // Array of { id, date, topicId, topicName, code, question, takeaway, mastered }
+  customVideos: {}, // topicId -> customUrl
   calcDisplay: "0",
   calcRadMode: true,
   calcMemory: 0,
 
   init() {
-    // Load start date (defaults to today - 10 days for illustration or today)
+    // Load start date
     const savedStart = localStorage.getItem("gate_start_date");
     if (savedStart) {
       this.startDate = new Date(savedStart);
@@ -53,6 +54,16 @@ const AppState = {
       }
     }
 
+    // Load custom videos
+    const savedVids = localStorage.getItem("gate_custom_videos");
+    if (savedVids) {
+      try {
+        this.customVideos = JSON.parse(savedVids);
+      } catch (e) {
+        this.customVideos = {};
+      }
+    }
+
     // Load today's active study seconds
     const todayKey = "gate_active_sec_" + this.getTodayStr();
     const savedSec = localStorage.getItem(todayKey);
@@ -74,6 +85,7 @@ const AppState = {
     localStorage.setItem("gate_active_topic", this.activeTopicId);
     localStorage.setItem("gate_completed_topics", JSON.stringify([...this.completedTopics]));
     localStorage.setItem("gate_mistakes_queue", JSON.stringify(this.mistakesQueue));
+    localStorage.setItem("gate_custom_videos", JSON.stringify(this.customVideos));
     const todayKey = "gate_active_sec_" + this.getTodayStr();
     localStorage.setItem(todayKey, this.activeSecondsToday.toString());
   },
@@ -146,6 +158,54 @@ const AppState = {
   },
 
   // ==========================================================================
+  // Mathematical KaTeX Helper
+  // ==========================================================================
+  renderFormula(elementOrId, latexString) {
+    const el = typeof elementOrId === "string" ? document.getElementById(elementOrId) : elementOrId;
+    if (!el || !latexString) return;
+    
+    const tryRender = () => {
+      if (window.katex) {
+        try {
+          katex.render(latexString, el, {
+            displayMode: true,
+            throwOnError: false
+          });
+        } catch (e) {
+          el.textContent = latexString;
+        }
+      } else {
+        setTimeout(tryRender, 50);
+      }
+    };
+    tryRender();
+  },
+
+  renderAllInlineMath(container) {
+    const target = container || document.body;
+    const tryAuto = () => {
+      if (window.renderMathInElement) {
+        try {
+          renderMathInElement(target, {
+            delimiters: [
+              { left: "$$", right: "$$", display: true },
+              { left: "$", right: "$", display: false },
+              { left: "\\(", right: "\\)", display: false },
+              { left: "\\[", right: "\\]", display: true }
+            ],
+            throwOnError: false
+          });
+        } catch (e) {
+          console.warn("KaTeX inline render warning:", e);
+        }
+      } else {
+        setTimeout(tryAuto, 50);
+      }
+    };
+    tryAuto();
+  },
+
+  // ==========================================================================
   // Navigation & View Switching (1 Step At A Time)
   // ==========================================================================
   switchView(viewName) {
@@ -179,15 +239,8 @@ const AppState = {
     else if (viewName === "syllabus") this.renderSyllabusTree();
     else if (viewName === "progress") this.renderProgressDiary();
 
-    // Trigger KaTeX render
-    if (window.renderMathInElement) {
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: "$$", right: "$$", display: true },
-          { left: "$", right: "$", display: false }
-        ]
-      });
-    }
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: "smooth" });
   },
 
   // ==========================================================================
@@ -211,25 +264,37 @@ const AppState = {
           </div>
         </div>
 
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:20px;">
-          <div style="background:#0F172A; padding:16px; border-radius:8px; border:1px solid var(--border-color);">
-            <h4 style="color:var(--accent-blue); margin-bottom:8px;">📚 Active Focus Module</h4>
-            <div style="font-weight:700; font-size:1.1rem;">[${topic.id}] ${topic.topic_name}</div>
-            <div style="color:var(--text-secondary); font-size:0.85rem; margin-top:4px;">Domain: ${topic.domain} | Module: ${topic.module_name}</div>
-            <div class="formula-box">
-              $$\\displaystyle ${topic.key_formula_latex}$$
+        <div style="display:grid; grid-template-columns: 1.1fr 1fr; gap:20px; margin-bottom:24px;">
+          <div style="background:#0F172A; padding:20px; border-radius:8px; border:1px solid var(--border-color);">
+            <h4 style="color:var(--accent-blue); margin-bottom:10px; display:flex; align-items:center; gap:8px;">
+              <span>📚</span> Active Focus Module
+            </h4>
+            <div style="font-weight:700; font-size:1.15rem; color:#fff;">[${topic.id}] ${topic.topic_name}</div>
+            <div style="color:var(--text-secondary); font-size:0.85rem; margin:6px 0 16px 0;">
+              Domain: <b style="color:#fff;">${topic.domain}</b> | Module: <b>${topic.module_name}</b> (Week ${topic.week_number})
             </div>
+            
+            <div style="color:var(--text-secondary); font-size:0.85rem; margin-bottom:6px;">Governing Mathematical Model:</div>
+            <div id="step1FormulaBox" class="formula-box"></div>
           </div>
 
-          <div style="background:#0F172A; padding:16px; border-radius:8px; border:1px solid var(--border-color);">
-            <h4 style="color:var(--accent-amber); margin-bottom:8px;">🧠 3-Question Active Recall Blitz</h4>
-            <div style="font-size:0.9rem; margin-bottom:12px;">
-              <b>Q1:</b> Full Wheatstone Bridge Output = $V_s \\cdot GF \\cdot \\epsilon$<br>
-              <b>Q2:</b> Link Twist angle $\\alpha_i$ is measured around $x_i$ axis.<br>
-              <b>Q3:</b> 2nd Order Peak Overshoot $M_p = e^{-\\frac{\\pi\\zeta}{\\sqrt{1-\\zeta^2}}}$ depends solely on $\\zeta$.
-            </div>
-            <div style="background:rgba(16,185,129,0.1); border-left:3px solid var(--accent-green); padding:8px 12px; font-size:0.85rem; color:#34D399;">
-              ✅ Concept primed! Ready for today's theory lecture.
+          <div style="background:#0F172A; padding:20px; border-radius:8px; border:1px solid var(--border-color);">
+            <h4 style="color:var(--accent-amber); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+              <span>🧠</span> 3-Question Rapid Recall Blitz
+            </h4>
+            <div style="display:flex; flex-direction:column; gap:10px; font-size:0.9rem;">
+              <div style="background:#1E293B; padding:10px 14px; border-radius:6px; border-left:3px solid var(--accent-blue);">
+                <b>Q1: Full Wheatstone Bridge Output:</b>
+                <div style="margin-top:4px; color:var(--accent-blue);" id="q1Formula"></div>
+              </div>
+              <div style="background:#1E293B; padding:10px 14px; border-radius:6px; border-left:3px solid var(--accent-amber);">
+                <b>Q2: D-H Parameter Twist ($\alpha_i$):</b>
+                <div style="margin-top:4px; color:#FBBF24;">Measured from $z_{i-1}$ to $z_i$ about the common normal $x_i$.</div>
+              </div>
+              <div style="background:#1E293B; padding:10px 14px; border-radius:6px; border-left:3px solid var(--accent-green);">
+                <b>Q3: 2nd Order Peak Overshoot ($M_p$):</b>
+                <div style="margin-top:4px; color:#34D399;" id="q3Formula"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -241,6 +306,12 @@ const AppState = {
         </div>
       </div>
     `;
+
+    // Render formulas directly
+    this.renderFormula("step1FormulaBox", topic.key_formula_latex);
+    this.renderFormula("q1Formula", "V_o = V_s \\cdot GF \\cdot \\epsilon");
+    this.renderFormula("q3Formula", "M_p = e^{-\\frac{\\pi\\zeta}{\\sqrt{1-\\zeta^2}}} \\quad (\\text{Depends solely on } \\zeta)");
+    this.renderAllInlineMath(container);
   },
 
   // ==========================================================================
@@ -251,47 +322,80 @@ const AppState = {
     if (!container) return;
 
     const topic = SYLLABUS_DATA.find(t => t.id === this.activeTopicId) || SYLLABUS_DATA[0];
-    const vidId = videoMode === "theory" ? topic.yt_theory_vid_id : topic.yt_pyq_vid_id;
+    
+    // Check if user has a custom video override
+    const customKey = `${topic.id}_${videoMode}`;
+    const customUrl = this.customVideos[customKey];
+
+    const defaultVidId = videoMode === "theory" ? topic.yt_theory_vid_id : topic.yt_pyq_vid_id;
+    const vidId = customUrl ? this.extractYouTubeId(customUrl) || defaultVidId : defaultVidId;
     const vidTitle = videoMode === "theory" ? topic.yt_theory_title : topic.yt_pyq_title;
+    const searchUrl = videoMode === "theory" ? topic.yt_search_url_theory : topic.yt_search_url_pyq;
 
     container.innerHTML = `
       <div class="study-card">
         <div class="step-header">
           <div>
             <div class="step-title">📺 Step 2: In-App Video Lecture & High-Yield Notes</div>
-            <div class="step-subtitle">Watch without external redirects, master the governing equations, and take notes.</div>
+            <div class="step-subtitle">Watch top-tier GATE lectures without distraction, review formulas, and use the calculator.</div>
           </div>
           <button class="btn-secondary" onclick="AppState.toggleCalc()">🖩 Open TCS iON Calculator</button>
         </div>
 
-        <div class="video-toggle-bar">
-          <button class="btn-toggle ${videoMode === 'theory' ? 'active' : ''}" onclick="AppState.renderStep2('theory')">
-            🏛️ Tier 1: GATE Theory Lecture
-          </button>
-          <button class="btn-toggle ${videoMode === 'pyq' ? 'active' : ''}" onclick="AppState.renderStep2('pyq')">
-            🧮 Tier 2: Step-by-Step PYQ Walkthrough
-          </button>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <div class="video-toggle-bar" style="margin-bottom:0;">
+            <button class="btn-toggle ${videoMode === 'theory' ? 'active' : ''}" onclick="AppState.renderStep2('theory')">
+              🏛️ Tier 1: Theory Lecture
+            </button>
+            <button class="btn-toggle ${videoMode === 'pyq' ? 'active' : ''}" onclick="AppState.renderStep2('pyq')">
+              🧮 Tier 2: PYQ Walkthrough
+            </button>
+          </div>
+
+          <div style="display:flex; gap:8px;">
+            <a href="${searchUrl}" target="_blank" class="btn-secondary" style="text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+              🔍 Search Lectures on YouTube ↗
+            </a>
+            <button class="btn-secondary" onclick="AppState.promptCustomVideo('${topic.id}', '${videoMode}')">
+              ✏️ Set Custom URL
+            </button>
+          </div>
         </div>
 
-        <div style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:8px;">
-          <b>Now Playing:</b> ${vidTitle}
+        <div style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:10px;">
+          <b>Now Playing:</b> <span style="color:#fff;">${vidTitle}</span>
         </div>
 
+        <!-- Embedded YouTube Video Container -->
         <div class="video-container">
-          <iframe src="https://www.youtube-nocookie.com/embed/${vidId}?rel=0" allowfullscreen></iframe>
+          <iframe 
+            src="https://www.youtube.com/embed/${vidId}?autoplay=0&rel=0" 
+            title="${vidTitle}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
         </div>
 
-        <div style="background:#0F172A; padding:16px; border-radius:8px; border:1px solid var(--border-color); margin-top:16px;">
-          <h4 style="color:var(--accent-blue); margin-bottom:8px;">📐 Governing Mathematical Formula</h4>
-          <div class="formula-box">
-            $$\\displaystyle ${topic.key_formula_latex}$$
-          </div>
-          <div class="takeaway-box">
-            <b>Core Exam Takeaways:</b> ${topic.core_summary}
+        <!-- Fallback Bar if video is restricted by channel owner -->
+        <div style="background:#0F172A; border:1px solid var(--border-color); border-radius:6px; padding:10px 14px; margin-top:8px; display:flex; justify-content:space-between; align-items:center; font-size:0.85rem;">
+          <span style="color:var(--text-muted);">ℹ️ If video says "Unavailable" (due to channel restrictions):</span>
+          <a href="https://www.youtube.com/watch?v=${vidId}" target="_blank" style="color:var(--accent-blue); text-decoration:none; font-weight:600;">
+            ▶️ Watch directly on YouTube.com ↗
+          </a>
+        </div>
+
+        <div style="background:#0F172A; padding:20px; border-radius:8px; border:1px solid var(--border-color); margin-top:20px;">
+          <h4 style="color:var(--accent-blue); margin-bottom:10px; display:flex; align-items:center; gap:8px;">
+            <span>📐</span> Governing Mathematical Formula & Derivation
+          </h4>
+          <div id="step2FormulaBox" class="formula-box"></div>
+          
+          <div class="takeaway-box" style="margin-top:16px;">
+            <b style="color:var(--text-primary);">Core Exam Takeaways:</b> ${topic.core_summary}
           </div>
         </div>
 
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:24px;">
           <button class="btn-secondary" onclick="AppState.switchView('step1')">⬅️ Back to Recall</button>
           <button class="btn-primary" onclick="AppState.switchView('step3')">
             🧮 Proceed to Today's PYQ Practice ➔
@@ -299,6 +403,33 @@ const AppState = {
         </div>
       </div>
     `;
+
+    // Render KaTeX formula directly
+    this.renderFormula("step2FormulaBox", topic.key_formula_latex);
+    this.renderAllInlineMath(container);
+  },
+
+  promptCustomVideo(topicId, mode) {
+    const current = this.customVideos[`${topicId}_${mode}`] || "";
+    const input = prompt("Paste your custom YouTube Video URL or Video ID for this topic:", current);
+    if (input !== null) {
+      if (input.trim()) {
+        this.customVideos[`${topicId}_${mode}`] = input.trim();
+      } else {
+        delete this.customVideos[`${topicId}_${mode}`];
+      }
+      this.save();
+      this.renderStep2(mode);
+    }
+  },
+
+  extractYouTubeId(url) {
+    if (!url) return "";
+    if (url.length === 11) return url;
+    if (url.includes("v=")) return url.split("v=")[1].split("&")[0];
+    if (url.includes("youtu.be/")) return url.split("youtu.be/")[1].split("?")[0];
+    if (url.includes("embed/")) return url.split("embed/")[1].split("?")[0];
+    return url;
   },
 
   // ==========================================================================
@@ -325,7 +456,7 @@ const AppState = {
       `;
     } else {
       inputHtml = `
-        <div>
+        <div style="margin-bottom:16px;">
           <label style="display:block; font-size:0.9rem; color:var(--text-secondary); margin-bottom:6px;">Enter Numerical Answer (NAT):</label>
           <input type="text" id="natInput" class="nat-input" placeholder="e.g. 138.5">
         </div>
@@ -342,13 +473,13 @@ const AppState = {
           <button class="btn-secondary" onclick="AppState.toggleCalc()">🖩 Open TCS iON Calculator</button>
         </div>
 
-        <div style="background:#0F172A; padding:20px; border-radius:8px; border:1px solid var(--border-color); margin-bottom:20px;">
-          <div style="display:flex; justify-content:space-between; color:var(--text-muted); font-size:0.8rem; text-transform:uppercase; margin-bottom:8px;">
+        <div style="background:#0F172A; padding:24px; border-radius:8px; border:1px solid var(--border-color); margin-bottom:20px;">
+          <div style="display:flex; justify-content:space-between; color:var(--text-muted); font-size:0.8rem; text-transform:uppercase; margin-bottom:12px;">
             <span>[${topic.id}] ${topic.domain}</span>
             <span>Weightage: ~${topic.weightage_approx_marks} Marks</span>
           </div>
 
-          <div class="question-text">${topic.pyq_question}</div>
+          <div class="question-text" id="pyqQuestionContainer">${topic.pyq_question}</div>
 
           ${inputHtml}
 
@@ -363,11 +494,13 @@ const AppState = {
         <div style="display:flex; justify-content:space-between; align-items:center;">
           <button class="btn-secondary" onclick="AppState.switchView('step2')">⬅️ Back to Lecture</button>
           <button class="btn-primary" onclick="AppState.switchView('step4')">
-            ✅ Proceed to Daily Wrap-Up ➔
+            ✅ Proceed to Daily Log ➔
           </button>
         </div>
       </div>
     `;
+
+    this.renderAllInlineMath(container);
   },
 
   checkPyqAnswer() {
@@ -419,7 +552,7 @@ const AppState = {
         <div class="feedback-box feedback-success">🎉 Correct Answer! (${correctAns})</div>
         <div class="solution-box">
           <h4 style="color:var(--accent-green); margin-bottom:8px;">📖 Step-by-Step Mathematical Derivation</h4>
-          <div>${topic.pyq_explanation}</div>
+          <div id="solutionText">${topic.pyq_explanation}</div>
         </div>
       `;
     } else {
@@ -427,19 +560,12 @@ const AppState = {
         <div class="feedback-box feedback-error">❌ Incorrect. Correct Answer is: <b>${correctAns}</b></div>
         <div class="solution-box">
           <h4 style="color:var(--accent-rose); margin-bottom:8px;">📖 Step-by-Step Mathematical Derivation</h4>
-          <div>${topic.pyq_explanation}</div>
+          <div id="solutionText">${topic.pyq_explanation}</div>
         </div>
       `;
     }
 
-    if (window.renderMathInElement) {
-      renderMathInElement(fb, {
-        delimiters: [
-          { left: "$$", right: "$$", display: true },
-          { left: "$", right: "$", display: false }
-        ]
-      });
-    }
+    this.renderAllInlineMath(fb);
   },
 
   quarantineCurrentMistake() {
@@ -758,7 +884,6 @@ const AppState = {
   calcEval() {
     try {
       const clean = this.calcDisplay.replace(/\^/g, "**");
-      // Safe arithmetic evaluator
       const res = Function(`"use strict"; return (${clean})`)();
       if (typeof res === "number" && !isNaN(res) && isFinite(res)) {
         this.calcDisplay = String(parseFloat(res.toFixed(8)));

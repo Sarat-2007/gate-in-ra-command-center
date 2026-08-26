@@ -25,6 +25,10 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) k = 1 or k = 2",
     "pyq_explanation": "Reducing the augmented matrix $[A|B]$ to row echelon form shows that $\\text{det}(A) = 0$. For consistency when $r(A)=2$, the third row of the augmented column must satisfy $k^2 - 3k + 2 = 0 \\implies (k-1)(k-2)=0 \\implies k = 1 \\text{ or } 2$.",
+    "yt_search_query_theory": "GATE Linear Algebra Rank of Matrix and Systems of Linear Equations lecture",
+    "yt_search_query_pyq": "GATE Linear Algebra Rank of Matrix and Systems of Linear Equations previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Linear+Algebra+Rank+of+Matrix+and+Systems+of+Linear+Equations+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Linear+Algebra+Rank+of+Matrix+and+Systems+of+Linear+Equations+previous+year+questions+pyqs",
     "yt_theory_vid_id": "2j5SBLu_U1U",
     "yt_pyq_vid_id": "Ip3X9LOh2dk"
   },
@@ -48,6 +52,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "128",
     "pyq_explanation": "For an $n \\times n$ matrix, $\\det(\\text{adj}(A)) = (\\det(A))^{n-1}$. For $n=3$, $\\det(\\text{adj}(A)) = 4^{3-1} = 16$. Furthermore, $\\det(k M) = k^n \\det(M)$. Hence, $\\det(2 \\cdot \\text{adj}(A)) = 2^3 \\times 16 = 8 \\times 16 = 128$.",
+    "yt_search_query_theory": "GATE Linear Algebra Matrix Inverses, Determinants and LU Decomposition lecture",
+    "yt_search_query_pyq": "GATE Linear Algebra Matrix Inverses, Determinants and LU Decomposition previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Linear+Algebra+Matrix+Inverses%2C+Determinants+and+LU+Decomposition+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Linear+Algebra+Matrix+Inverses%2C+Determinants+and+LU+Decomposition+previous+year+questions+pyqs",
     "yt_theory_vid_id": "uQhTuRlWM3E",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -76,6 +84,10 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) 1 and 2",
     "pyq_explanation": "Given $\\lambda_1 = 3$. Sum of eigenvalues $\\lambda_1 + \\lambda_2 + \\lambda_3 = \\text{tr}(A) = 6 \\implies \\lambda_2 + \\lambda_3 = 3$. Product $\\lambda_1 \\lambda_2 \\lambda_3 = \\det(A) = 6 \\implies \\lambda_2 \\lambda_3 = 2$. Solving gives $\\lambda_2=1, \\lambda_3=2$.",
+    "yt_search_query_theory": "GATE Linear Algebra Eigenvalues, Eigenvectors and Diagonalization lecture",
+    "yt_search_query_pyq": "GATE Linear Algebra Eigenvalues, Eigenvectors and Diagonalization previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Linear+Algebra+Eigenvalues%2C+Eigenvectors+and+Diagonalization+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Linear+Algebra+Eigenvalues%2C+Eigenvectors+and+Diagonalization+previous+year+questions+pyqs",
     "yt_theory_vid_id": "PFDu9oVAE-g",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -104,6 +116,10 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) Zero Matrix O",
     "pyq_explanation": "The characteristic polynomial is $|A - \\lambda I| = (1-\\lambda)(2-\\lambda) = \\lambda^2 - 3\\lambda + 2 = 0$. By Cayley-Hamilton, $A^2 - 3A + 2I = O$. Multiplying by $A$ gives $A^3 - 3A^2 + 2A = O$.",
+    "yt_search_query_theory": "GATE Linear Algebra Cayley-Hamilton Theorem and Quadratic Forms lecture",
+    "yt_search_query_pyq": "GATE Linear Algebra Cayley-Hamilton Theorem and Quadratic Forms previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Linear+Algebra+Cayley-Hamilton+Theorem+and+Quadratic+Forms+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Linear+Algebra+Cayley-Hamilton+Theorem+and+Quadratic+Forms+previous+year+questions+pyqs",
     "yt_theory_vid_id": "2j5SBLu_U1U",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -127,6 +143,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "0.1667",
     "pyq_explanation": "Using Taylor series expansion $\\sin x = x - \\frac{x^3}{6} + \\dots$, we get $\\lim_{x \\to 0} \\frac{x - (x - x^3/6)}{x^3} = \\frac{1}{6} \\approx 0.1667$.",
+    "yt_search_query_theory": "GATE Calculus Limits, Continuity, Differentiability and L'H\u00f4pital lecture",
+    "yt_search_query_pyq": "GATE Calculus Limits, Continuity, Differentiability and L'H\u00f4pital previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Calculus+Limits%2C+Continuity%2C+Differentiability+and+L%27H%C3%B4pital+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Calculus+Limits%2C+Continuity%2C+Differentiability+and+L%27H%C3%B4pital+previous+year+questions+pyqs",
     "yt_theory_vid_id": "rB83DpBJQsE",
     "yt_pyq_vid_id": "rB83DpBJQsE"
   },
@@ -150,6 +170,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "0.5",
     "pyq_explanation": "$f'(x) = 1 + \\ln x$, $f''(x) = 1/x$. At $x=1$, $f''(1) = 1$. The coefficient of $(x-1)^2$ is $\\frac{f''(1)}{2!} = \\frac{1}{2} = 0.5$.",
+    "yt_search_query_theory": "GATE Calculus Mean Value Theorems, Taylor and Maclaurin Series lecture",
+    "yt_search_query_pyq": "GATE Calculus Mean Value Theorems, Taylor and Maclaurin Series previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Calculus+Mean+Value+Theorems%2C+Taylor+and+Maclaurin+Series+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Calculus+Mean+Value+Theorems%2C+Taylor+and+Maclaurin+Series+previous+year+questions+pyqs",
     "yt_theory_vid_id": "3d6DsjIBzJ4",
     "yt_pyq_vid_id": "rB83DpBJQsE"
   },
@@ -178,6 +202,10 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) Local minimum at (2, -3)",
     "pyq_explanation": "$f_x = 2x-4=0 \\implies x=2$; $f_y = 2y+6=0 \\implies y=-3$. $r = f_{xx} = 2$, $s = f_{xy} = 0$, $t = f_{yy} = 2$. $\\Delta = rt - s^2 = 4 > 0$ and $r = 2 > 0 \\implies$ Local minimum at $(2, -3)$ with value 0.",
+    "yt_search_query_theory": "GATE Calculus Partial Derivatives, Maxima/Minima and Saddle Points lecture",
+    "yt_search_query_pyq": "GATE Calculus Partial Derivatives, Maxima/Minima and Saddle Points previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Calculus+Partial+Derivatives%2C+Maxima%2FMinima+and+Saddle+Points+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Calculus+Partial+Derivatives%2C+Maxima%2FMinima+and+Saddle+Points+previous+year+questions+pyqs",
     "yt_theory_vid_id": "rB83DpBJQsE",
     "yt_pyq_vid_id": "rB83DpBJQsE"
   },
@@ -201,6 +229,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "0.3927",
     "pyq_explanation": "In polar coordinates, $x^2+y^2 = r^2$, $dy dx = r dr d\\theta$. Region is 1st quadrant of circle of radius 1: $\\int_0^{\\pi/2} d\\theta \\int_0^1 r^3 dr = [\\theta]_0^{\\pi/2} [\\frac{r^4}{4}]_0^1 = \\frac{\\pi}{2} \\times \\frac{1}{4} = \\frac{\\pi}{8} \\approx 0.3927$.",
+    "yt_search_query_theory": "GATE Calculus Multiple Integrals and Change of Variables lecture",
+    "yt_search_query_pyq": "GATE Calculus Multiple Integrals and Change of Variables previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Calculus+Multiple+Integrals+and+Change+of+Variables+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Calculus+Multiple+Integrals+and+Change+of+Variables+previous+year+questions+pyqs",
     "yt_theory_vid_id": "rB83DpBJQsE",
     "yt_pyq_vid_id": "rB83DpBJQsE"
   },
@@ -224,6 +256,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "4.5826",
     "pyq_explanation": "$\\nabla \\phi = (2xyz)\\hat{i} + (x^2 z)\\hat{j} + (x^2 y)\\hat{k}$. At $(1, 2, -1)$: $\\nabla \\phi = -4\\hat{i} - 1\\hat{j} + 2\\hat{k}$. Maximum directional derivative is $|\\nabla \\phi| = \\sqrt{(-4)^2 + (-1)^2 + (2)^2} = \\sqrt{16+1+4} = \\sqrt{21} \\approx 4.5826$.",
+    "yt_search_query_theory": "GATE Vector Calculus Gradient, Directional Derivative, Divergence and Curl lecture",
+    "yt_search_query_pyq": "GATE Vector Calculus Gradient, Directional Derivative, Divergence and Curl previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Vector+Calculus+Gradient%2C+Directional+Derivative%2C+Divergence+and+Curl+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Vector+Calculus+Gradient%2C+Directional+Derivative%2C+Divergence+and+Curl+previous+year+questions+pyqs",
     "yt_theory_vid_id": "rB83DpBJQsE",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -247,6 +283,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "29",
     "pyq_explanation": "The potential function is $\\phi(x,y,z) = x^2 y + xz^3$. Evaluating from $(0,0,0)$ to $(1,2,3)$: $\\phi(1,2,3) - \\phi(0,0,0) = (1^2 \\times 2 + 1 \\times 3^3) - 0 = 2 + 27 = 29$.",
+    "yt_search_query_theory": "GATE Vector Calculus Line Integrals, Work Done and Conservative Fields lecture",
+    "yt_search_query_pyq": "GATE Vector Calculus Line Integrals, Work Done and Conservative Fields previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Vector+Calculus+Line+Integrals%2C+Work+Done+and+Conservative+Fields+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Vector+Calculus+Line+Integrals%2C+Work+Done+and+Conservative+Fields+previous+year+questions+pyqs",
     "yt_theory_vid_id": "2j5SBLu_U1U",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -270,6 +310,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "62.8318",
     "pyq_explanation": "By Green's theorem: $\\iint_R (\\frac{\\partial Q}{\\partial x} - \\frac{\\partial P}{\\partial y}) dA = \\iint_R (1 - (-4)) dA = 5 \\times \\text{Area}(R) = 5 \\times \\pi(2^2) = 20\\pi \\approx 62.8318$.",
+    "yt_search_query_theory": "GATE Vector Calculus Green's Theorem in Plane and Stokes' Theorem lecture",
+    "yt_search_query_pyq": "GATE Vector Calculus Green's Theorem in Plane and Stokes' Theorem previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Vector+Calculus+Green%27s+Theorem+in+Plane+and+Stokes%27+Theorem+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Vector+Calculus+Green%27s+Theorem+in+Plane+and+Stokes%27+Theorem+previous+year+questions+pyqs",
     "yt_theory_vid_id": "2j5SBLu_U1U",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -293,6 +337,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "339.292",
     "pyq_explanation": "$\\nabla \\cdot \\vec{F} = \\frac{\\partial x}{\\partial x} + \\frac{\\partial y}{\\partial y} + \\frac{\\partial z}{\\partial z} = 1 + 1 + 1 = 3$. By Gauss Divergence Theorem: $\\text{Flux} = 3 \\times V_{sphere} = 3 \\times (\\frac{4}{3}\\pi R^3) = 4\\pi(3^3) = 108\\pi \\approx 339.292$.",
+    "yt_search_query_theory": "GATE Vector Calculus Gauss Divergence Theorem lecture",
+    "yt_search_query_pyq": "GATE Vector Calculus Gauss Divergence Theorem previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Vector+Calculus+Gauss+Divergence+Theorem+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Vector+Calculus+Gauss+Divergence+Theorem+previous+year+questions+pyqs",
     "yt_theory_vid_id": "2j5SBLu_U1U",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -321,6 +369,10 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) x^2 + 1",
     "pyq_explanation": "Dividing by $x^2+1$ yields $\\frac{dy}{dx} + \\frac{2x}{x^2+1}y = \\frac{4x^2}{x^2+1}$. Integrating factor $IF = e^{\\int \\frac{2x}{x^2+1}dx} = e^{\\ln(x^2+1)} = x^2 + 1$.",
+    "yt_search_query_theory": "GATE Differential Equations 1st Order ODEs: Exact, Linear and Integrating Factors lecture",
+    "yt_search_query_pyq": "GATE Differential Equations 1st Order ODEs: Exact, Linear and Integrating Factors previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Differential+Equations+1st+Order+ODEs%3A+Exact%2C+Linear+and+Integrating+Factors+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Differential+Equations+1st+Order+ODEs%3A+Exact%2C+Linear+and+Integrating+Factors+previous+year+questions+pyqs",
     "yt_theory_vid_id": "2j5SBLu_U1U",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -349,6 +401,10 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) -(x/4) cos(2x)",
     "pyq_explanation": "Since $D^2 + 4 = 0$ for $D = \\pm 2j$, this is a resonance case. $y_p = \\frac{1}{D^2+4}\\sin(2x) = -\\frac{x}{2(2)}\\cos(2x) = -\\frac{x}{4}\\cos(2x)$.",
+    "yt_search_query_theory": "GATE Differential Equations Higher Order Linear ODEs with Constant Coefficients lecture",
+    "yt_search_query_pyq": "GATE Differential Equations Higher Order Linear ODEs with Constant Coefficients previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Differential+Equations+Higher+Order+Linear+ODEs+with+Constant+Coefficients+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Differential+Equations+Higher+Order+Linear+ODEs+with+Constant+Coefficients+previous+year+questions+pyqs",
     "yt_theory_vid_id": "2j5SBLu_U1U",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -377,6 +433,10 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) y = C1 x + C2 x^2",
     "pyq_explanation": "Let $x = e^z, D = d/dz$. Equation becomes $[D(D-1) - 2D + 2]y = [D^2 - 3D + 2]y = 0$. Roots are $m = 1, 2$. Thus $y(z) = C_1 e^z + C_2 e^{2z} = C_1 x + C_2 x^2$.",
+    "yt_search_query_theory": "GATE Differential Equations Cauchy-Euler Equations and Variation of Parameters lecture",
+    "yt_search_query_pyq": "GATE Differential Equations Cauchy-Euler Equations and Variation of Parameters previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Differential+Equations+Cauchy-Euler+Equations+and+Variation+of+Parameters+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Differential+Equations+Cauchy-Euler+Equations+and+Variation+of+Parameters+previous+year+questions+pyqs",
     "yt_theory_vid_id": "2j5SBLu_U1U",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -405,6 +465,10 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) Parabolic PDE",
     "pyq_explanation": "For $A u_{xx} + B u_{xt} + C u_{tt} + \\dots$, discriminant $B^2 - 4AC = 0^2 - 4(k)(0) = 0 \\implies$ Parabolic PDE.",
+    "yt_search_query_theory": "GATE Differential Equations Partial Differential Equations and Separation of Variables lecture",
+    "yt_search_query_pyq": "GATE Differential Equations Partial Differential Equations and Separation of Variables previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Differential+Equations+Partial+Differential+Equations+and+Separation+of+Variables+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Differential+Equations+Partial+Differential+Equations+and+Separation+of+Variables+previous+year+questions+pyqs",
     "yt_theory_vid_id": "2j5SBLu_U1U",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -433,6 +497,10 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) 2xy + C",
     "pyq_explanation": "$u_x = 2x = v_y \\implies v = 2xy + g(x)$. $u_y = -2y = -v_x = -(2y + g'(x)) \\implies g'(x) = 0 \\implies v(x,y) = 2xy + C$.",
+    "yt_search_query_theory": "GATE Complex Variables Analytic Functions and Cauchy-Riemann Equations lecture",
+    "yt_search_query_pyq": "GATE Complex Variables Analytic Functions and Cauchy-Riemann Equations previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Complex+Variables+Analytic+Functions+and+Cauchy-Riemann+Equations+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Complex+Variables+Analytic+Functions+and+Cauchy-Riemann+Equations+previous+year+questions+pyqs",
     "yt_theory_vid_id": "2j5SBLu_U1U",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -456,6 +524,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "6.2832",
     "pyq_explanation": "$\\frac{z+1}{z^2-1} = \\frac{z+1}{(z-1)(z+1)} = \\frac{1}{z-1}$. The only pole is at $z=1$ with residue 1. Enclosed inside $|z|=2$. Thus $\\oint = 2\\pi j \\times 1 = 2\\pi j$. The real value/magnitude is $2\\pi \\approx 6.2832$.",
+    "yt_search_query_theory": "GATE Complex Variables Cauchy's Integral Theorem and Residue Theorem lecture",
+    "yt_search_query_pyq": "GATE Complex Variables Cauchy's Integral Theorem and Residue Theorem previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Complex+Variables+Cauchy%27s+Integral+Theorem+and+Residue+Theorem+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Complex+Variables+Cauchy%27s+Integral+Theorem+and+Residue+Theorem+previous+year+questions+pyqs",
     "yt_theory_vid_id": "2j5SBLu_U1U",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -479,6 +551,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "0.625",
     "pyq_explanation": "By Bayes' Theorem: $P(B|D) = \\frac{P(D|B)P(B)}{P(D|A)P(A) + P(D|B)P(B)} = \\frac{0.05 \\times 0.40}{(0.02 \\times 0.60) + (0.05 \\times 0.40)} = \\frac{0.020}{0.012 + 0.020} = \\frac{0.020}{0.032} = 0.625$.",
+    "yt_search_query_theory": "GATE Probability and Statistics Conditional Probability, Bayes' Theorem and Distributions lecture",
+    "yt_search_query_pyq": "GATE Probability and Statistics Conditional Probability, Bayes' Theorem and Distributions previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Probability+and+Statistics+Conditional+Probability%2C+Bayes%27+Theorem+and+Distributions+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Probability+and+Statistics+Conditional+Probability%2C+Bayes%27+Theorem+and+Distributions+previous+year+questions+pyqs",
     "yt_theory_vid_id": "2j5SBLu_U1U",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -502,6 +578,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "2.6667",
     "pyq_explanation": "$x_1 = x_0 - \\frac{x_0^2 - 7}{2x_0} = 3 - \\frac{9 - 7}{6} = 3 - \\frac{2}{6} = 3 - 0.3333 = 2.6667$.",
+    "yt_search_query_theory": "GATE Numerical Methods Root Finding and Numerical Integration (Newton-Raphson, Simpson's) lecture",
+    "yt_search_query_pyq": "GATE Numerical Methods Root Finding and Numerical Integration (Newton-Raphson, Simpson's) previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Numerical+Methods+Root+Finding+and+Numerical+Integration+%28Newton-Raphson%2C+Simpson%27s%29+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Numerical+Methods+Root+Finding+and+Numerical+Integration+%28Newton-Raphson%2C+Simpson%27s%29+previous+year+questions+pyqs",
     "yt_theory_vid_id": "2j5SBLu_U1U",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
@@ -525,6 +605,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "48",
     "pyq_explanation": "$P = 2^2 \\times 100 = 400\\text{ W}$. Relative uncertainty $\\frac{\\delta P}{P} = \\sqrt{(2 \\frac{\\delta I}{I})^2 + (\\frac{\\delta R}{R})^2} = \\sqrt{(2 \\times \\frac{0.1}{2})^2 + (\\frac{2}{100})^2} = \\sqrt{0.1^2 + 0.02^2} = \\sqrt{0.0104} \\approx 0.10198$. For limiting error sum: $\\frac{\\delta P}{P} = 2(5\\%) + 2\\% = 12\\% \\implies \\delta P = 0.12 \\times 400 = 48\\text{ W}$.",
+    "yt_search_query_theory": "GATE Sensor Fundamentals Static and Dynamic Sensor Characteristics and Error Propagation lecture",
+    "yt_search_query_pyq": "GATE Sensor Fundamentals Static and Dynamic Sensor Characteristics and Error Propagation previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Sensor+Fundamentals+Static+and+Dynamic+Sensor+Characteristics+and+Error+Propagation+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Sensor+Fundamentals+Static+and+Dynamic+Sensor+Characteristics+and+Error+Propagation+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -548,6 +632,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "0.24",
     "pyq_explanation": "$\\Delta R = GF \\times R \\times \\epsilon = 2.0 \\times 120 \\times (1000 \\times 10^{-6}) = 0.24\\,\\Omega$.",
+    "yt_search_query_theory": "GATE Resistive Transducers Piezoresistive Strain Gauges and Gauge Factor lecture",
+    "yt_search_query_pyq": "GATE Resistive Transducers Piezoresistive Strain Gauges and Gauge Factor previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Resistive+Transducers+Piezoresistive+Strain+Gauges+and+Gauge+Factor+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Resistive+Transducers+Piezoresistive+Strain+Gauges+and+Gauge+Factor+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -571,6 +659,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "10",
     "pyq_explanation": "For a full bridge: $V_o = V_s \\times GF \\times \\epsilon = 10\\text{ V} \\times 2.0 \\times (500 \\times 10^{-6}) = 0.010\\text{ V} = 10\\text{ mV}$.",
+    "yt_search_query_theory": "GATE Resistive Transducers Wheatstone Bridge Circuits (Quarter, Half and Full Bridge) lecture",
+    "yt_search_query_pyq": "GATE Resistive Transducers Wheatstone Bridge Circuits (Quarter, Half and Full Bridge) previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Resistive+Transducers+Wheatstone+Bridge+Circuits+%28Quarter%2C+Half+and+Full+Bridge%29+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Resistive+Transducers+Wheatstone+Bridge+Circuits+%28Quarter%2C+Half+and+Full+Bridge%29+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -594,6 +686,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "138.5",
     "pyq_explanation": "$R(100) = R_0 (1 + \\alpha T) = 100(1 + 0.00385 \\times 100) = 100(1 + 0.385) = 138.5\\,\\Omega$.",
+    "yt_search_query_theory": "GATE Temperature Transducers RTD (Pt100), Callendar-Van Dusen Equation and Thermistors (NTC/PTC) lecture",
+    "yt_search_query_pyq": "GATE Temperature Transducers RTD (Pt100), Callendar-Van Dusen Equation and Thermistors (NTC/PTC) previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Temperature+Transducers+RTD+%28Pt100%29%2C+Callendar-Van+Dusen+Equation+and+Thermistors+%28NTC%2FPTC%29+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Temperature+Transducers+RTD+%28Pt100%29%2C+Callendar-Van+Dusen+Equation+and+Thermistors+%28NTC%2FPTC%29+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -622,6 +718,10 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) Harmonics in excitation voltage and stray capacitance between windings",
     "pyq_explanation": "At exact null, fundamental voltages cancel, but higher-order harmonics in the AC source and inter-winding stray capacitances create an uncancelled residual voltage.",
+    "yt_search_query_theory": "GATE Inductive Transducers LVDT (Linear Variable Differential Transformer) and Synchros lecture",
+    "yt_search_query_pyq": "GATE Inductive Transducers LVDT (Linear Variable Differential Transformer) and Synchros previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Inductive+Transducers+LVDT+%28Linear+Variable+Differential+Transformer%29+and+Synchros+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Inductive+Transducers+LVDT+%28Linear+Variable+Differential+Transformer%29+and+Synchros+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -645,6 +745,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "-1.0",
     "pyq_explanation": "$V_o = -\\frac{q}{C_f} = -\\frac{d \\cdot F}{C_f} = -\\frac{200 \\times 10^{-12} \\times 50}{10 \\times 10^{-9}} = -\\frac{10000 \\times 10^{-12}}{10 \\times 10^{-9}} = -1.0\\text{ V}$.",
+    "yt_search_query_theory": "GATE Piezoelectric Transducers Piezoelectric Effect, Charge Amplifiers and Voltage Sensitivity lecture",
+    "yt_search_query_pyq": "GATE Piezoelectric Transducers Piezoelectric Effect, Charge Amplifiers and Voltage Sensitivity previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Piezoelectric+Transducers+Piezoelectric+Effect%2C+Charge+Amplifiers+and+Voltage+Sensitivity+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Piezoelectric+Transducers+Piezoelectric+Effect%2C+Charge+Amplifiers+and+Voltage+Sensitivity+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -668,6 +772,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "0.09",
     "pyq_explanation": "$\\text{Resolution} = \\frac{360^\\circ}{4 \\times N} = \\frac{360^\\circ}{4 \\times 1000} = \\frac{360}{4000} = 0.09^\\circ$.",
+    "yt_search_query_theory": "GATE Optical and Magnetic Sensors Optical Encoders (Incremental/Absolute) and Hall Effect Transducers lecture",
+    "yt_search_query_pyq": "GATE Optical and Magnetic Sensors Optical Encoders (Incremental/Absolute) and Hall Effect Transducers previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Optical+and+Magnetic+Sensors+Optical+Encoders+%28Incremental%2FAbsolute%29+and+Hall+Effect+Transducers+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Optical+and+Magnetic+Sensors+Optical+Encoders+%28Incremental%2FAbsolute%29+and+Hall+Effect+Transducers+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -691,6 +799,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "10.0",
     "pyq_explanation": "$I = 4\\text{ mA} + 16\\text{ mA} \\times \\frac{75 - 0}{200 - 0} = 4 + 16 \\times 0.375 = 4 + 6 = 10.0\\text{ mA}$.",
+    "yt_search_query_theory": "GATE Flow and Industrial Transmitters Flowmeters (Differential Pressure, EM and Ultrasonic) and 4\u201320 mA Loops lecture",
+    "yt_search_query_pyq": "GATE Flow and Industrial Transmitters Flowmeters (Differential Pressure, EM and Ultrasonic) and 4\u201320 mA Loops previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Flow+and+Industrial+Transmitters+Flowmeters+%28Differential+Pressure%2C+EM+and+Ultrasonic%29+and+4%E2%80%9320+mA+Loops+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Flow+and+Industrial+Transmitters+Flowmeters+%28Differential+Pressure%2C+EM+and+Ultrasonic%29+and+4%E2%80%9320+mA+Loops+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -714,6 +826,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "1.0",
     "pyq_explanation": "$A_d = 1 + \\frac{2R_1}{R_g} \\implies 101 = 1 + \\frac{2(50)}{R_g} \\implies 100 = \\frac{100}{R_g} \\implies R_g = 1.0\\,\\text{k}\\Omega$.",
+    "yt_search_query_theory": "GATE Signal Conditioning 3-Op-Amp Instrumentation Amplifier and CMRR lecture",
+    "yt_search_query_pyq": "GATE Signal Conditioning 3-Op-Amp Instrumentation Amplifier and CMRR previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Signal+Conditioning+3-Op-Amp+Instrumentation+Amplifier+and+CMRR+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Signal+Conditioning+3-Op-Amp+Instrumentation+Amplifier+and+CMRR+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -737,6 +853,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "8.0",
     "pyq_explanation": "For an $n$-bit SAR ADC, conversion time is $n$ clock periods: $T_{conv} = n \\times T_{clk} = 8 \\times \\frac{1}{1\\text{ MHz}} = 8\\,\\mu\\text{s}$.",
+    "yt_search_query_theory": "GATE Data Converters Analog-to-Digital (ADC) and Digital-to-Analog (DAC) Converters lecture",
+    "yt_search_query_pyq": "GATE Data Converters Analog-to-Digital (ADC) and Digital-to-Analog (DAC) Converters previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Data+Converters+Analog-to-Digital+%28ADC%29+and+Digital-to-Analog+%28DAC%29+Converters+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Data+Converters+Analog-to-Digital+%28ADC%29+and+Digital-to-Analog+%28DAC%29+Converters+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -760,6 +880,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "36",
     "pyq_explanation": "$R_{th} = \\frac{V_{oc}}{I_{sc}} = \\frac{24}{6} = 4\\,\\Omega$. Maximum power $P_{max} = \\frac{V_{th}^2}{4 R_{th}} = \\frac{24^2}{4 \\times 4} = \\frac{576}{16} = 36\\text{ W}$.",
+    "yt_search_query_theory": "GATE Circuit Analysis KCL/KVL, Nodal/Mesh and Network Theorems (Thevenin, Norton, MPT) lecture",
+    "yt_search_query_pyq": "GATE Circuit Analysis KCL/KVL, Nodal/Mesh and Network Theorems (Thevenin, Norton, MPT) previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Circuit+Analysis+KCL%2FKVL%2C+Nodal%2FMesh+and+Network+Theorems+%28Thevenin%2C+Norton%2C+MPT%29+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Circuit+Analysis+KCL%2FKVL%2C+Nodal%2FMesh+and+Network+Theorems+%28Thevenin%2C+Norton%2C+MPT%29+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -783,6 +907,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "10.0",
     "pyq_explanation": "$Q = \\frac{1}{R}\\sqrt{\\frac{L}{C}} = \\frac{1}{10}\\sqrt{\\frac{100 \\times 10^{-3}}{10 \\times 10^{-6}}} = \\frac{1}{10}\\sqrt{10000} = \\frac{100}{10} = 10.0$.",
+    "yt_search_query_theory": "GATE Circuit Analysis RL, RC and RLC Transient Response and AC Resonance lecture",
+    "yt_search_query_pyq": "GATE Circuit Analysis RL, RC and RLC Transient Response and AC Resonance previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Circuit+Analysis+RL%2C+RC+and+RLC+Transient+Response+and+AC+Resonance+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Circuit+Analysis+RL%2C+RC+and+RLC+Transient+Response+and+AC+Resonance+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -806,6 +934,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "63.66",
     "pyq_explanation": "$SR = 2\\pi f_{max} V_m \\implies f_{max} = \\frac{SR}{2\\pi V_m} = \\frac{2 \\times 10^6}{2\\pi \\times 5} = \\frac{2 \\times 10^6}{31.4159} \\approx 63662\\text{ Hz} = 63.66\\text{ kHz}$.",
+    "yt_search_query_theory": "GATE Analog Electronics Op-Amp Linear Applications, Virtual Ground and Imperfections lecture",
+    "yt_search_query_pyq": "GATE Analog Electronics Op-Amp Linear Applications, Virtual Ground and Imperfections previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Analog+Electronics+Op-Amp+Linear+Applications%2C+Virtual+Ground+and+Imperfections+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Analog+Electronics+Op-Amp+Linear+Applications%2C+Virtual+Ground+and+Imperfections+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -829,6 +961,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "21",
     "pyq_explanation": "Stage 1: $\\frac{64}{4} = 16$ MUXs. Stage 2: $\\frac{16}{4} = 4$ MUXs. Stage 3: $\\frac{4}{4} = 1$ MUX. Total MUXs = $16 + 4 + 1 = 21$.",
+    "yt_search_query_theory": "GATE Digital Logic Combinational Logic: K-Maps, Multiplexers and Decoders lecture",
+    "yt_search_query_pyq": "GATE Digital Logic Combinational Logic: K-Maps, Multiplexers and Decoders previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Digital+Logic+Combinational+Logic%3A+K-Maps%2C+Multiplexers+and+Decoders+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Digital+Logic+Combinational+Logic%3A+K-Maps%2C+Multiplexers+and+Decoders+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -852,6 +988,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "8",
     "pyq_explanation": "An $n$-bit Johnson (twisted ring) counter has modulus equal to $2n$. For $n=4$, total unique states = $2 \\times 4 = 8$.",
+    "yt_search_query_theory": "GATE Digital Logic Sequential Circuits: Flip-Flops, Setup/Hold Time and Counters lecture",
+    "yt_search_query_pyq": "GATE Digital Logic Sequential Circuits: Flip-Flops, Setup/Hold Time and Counters previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Digital+Logic+Sequential+Circuits%3A+Flip-Flops%2C+Setup%2FHold+Time+and+Counters+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Digital+Logic+Sequential+Circuits%3A+Flip-Flops%2C+Setup%2FHold+Time+and+Counters+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -880,6 +1020,10 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) Triangular pulse of base width 4 centered at t = 2",
     "pyq_explanation": "Convolving two identical rectangular pulses of duration $T=2$ yields a symmetric triangular pulse starting at $t=0$, peaking at $t=2$ with amplitude 2, and ending at $t=4$ (total base width 4).",
+    "yt_search_query_theory": "GATE Signals and Systems Signal Classification, LTI Systems and Convolution lecture",
+    "yt_search_query_pyq": "GATE Signals and Systems Signal Classification, LTI Systems and Convolution previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Signals+and+Systems+Signal+Classification%2C+LTI+Systems+and+Convolution+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Signals+and+Systems+Signal+Classification%2C+LTI+Systems+and+Convolution+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -908,7 +1052,11 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) (s+3) / ((s+3)^2 + 16)",
     "pyq_explanation": "By frequency shifting theorem: $\\mathcal{L}\\{\\cos(4t)\\} = \\frac{s}{s^2+16} \\implies \\mathcal{L}\\{e^{-3t}\\cos(4t)\\} = \\frac{s+3}{(s+3)^2 + 16}$.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
+    "yt_search_query_theory": "GATE Signals and Systems Laplace Transform, Region of Convergence (ROC) and Z-Transform lecture",
+    "yt_search_query_pyq": "GATE Signals and Systems Laplace Transform, Region of Convergence (ROC) and Z-Transform previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Signals+and+Systems+Laplace+Transform%2C+Region+of+Convergence+%28ROC%29+and+Z-Transform+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Signals+and+Systems+Laplace+Transform%2C+Region+of+Convergence+%28ROC%29+and+Z-Transform+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/user/ControlLectures",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
   {
@@ -931,7 +1079,11 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "9.5",
     "pyq_explanation": "Closed-loop denominator $s^2 + 6s + 25 = 0 \\implies \\omega_n = 5\\text{ rad/s}, 2\\zeta\\omega_n = 6 \\implies \\zeta = \\frac{6}{10} = 0.6$. $M_p = e^{-\\frac{0.6\\pi}{\\sqrt{1-0.36}}} = e^{-\\frac{1.88496}{0.8}} = e^{-2.3562} \\approx 0.0948 = 9.5\\%$.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
+    "yt_search_query_theory": "GATE Control Systems Block Diagrams, Signal Flow Graphs (Mason's Gain) and 2nd Order Response lecture",
+    "yt_search_query_pyq": "GATE Control Systems Block Diagrams, Signal Flow Graphs (Mason's Gain) and 2nd Order Response previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Control+Systems+Block+Diagrams%2C+Signal+Flow+Graphs+%28Mason%27s+Gain%29+and+2nd+Order+Response+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Control+Systems+Block+Diagrams%2C+Signal+Flow+Graphs+%28Mason%27s+Gain%29+and+2nd+Order+Response+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/user/ControlLectures",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
   {
@@ -959,7 +1111,11 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) 1 time counter-clockwise",
     "pyq_explanation": "By the Nyquist criterion $N = P - Z$. For closed-loop stability, $Z = 0 \\implies N = P - 0 = 1 - 0 = +1$, which signifies exactly 1 counter-clockwise encirclement of $(-1+j0)$.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
+    "yt_search_query_theory": "GATE Control Systems Routh-Hurwitz Stability, Root Locus and Frequency Response (Bode/Nyquist) lecture",
+    "yt_search_query_pyq": "GATE Control Systems Routh-Hurwitz Stability, Root Locus and Frequency Response (Bode/Nyquist) previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Control+Systems+Routh-Hurwitz+Stability%2C+Root+Locus+and+Frequency+Response+%28Bode%2FNyquist%29+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Control+Systems+Routh-Hurwitz+Stability%2C+Root+Locus+and+Frequency+Response+%28Bode%2FNyquist%29+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/user/ControlLectures",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
   {
@@ -987,7 +1143,11 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) [[0, 1], [1, -3]]",
     "pyq_explanation": "$AB = \\begin{bmatrix} 0 & 1 \\\\ -2 & -3 \\end{bmatrix} \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} 1 \\\\ -3 \\end{bmatrix}$. Thus $Q_c = [B \\ AB] = \\begin{bmatrix} 0 & 1 \\\\ 1 & -3 \\end{bmatrix}$. Since $\\det(Q_c) = 0 - 1 = -1 \\ne 0$, system is completely controllable.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
+    "yt_search_query_theory": "GATE Control Systems Compensators (Lead/Lag) and State Space Analysis lecture",
+    "yt_search_query_pyq": "GATE Control Systems Compensators (Lead/Lag) and State Space Analysis previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Control+Systems+Compensators+%28Lead%2FLag%29+and+State+Space+Analysis+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Control+Systems+Compensators+%28Lead%2FLag%29+and+State+Space+Analysis+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/user/ControlLectures",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
   {
@@ -1015,7 +1175,11 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) [2, -1, 3]^T",
     "pyq_explanation": "$P_{new} = R_z(90^\\circ)^T P = \\begin{bmatrix} 0 & 1 & 0 \\\\ -1 & 0 & 0 \\\\ 0 & 0 & 1 \\end{bmatrix} \\begin{bmatrix} 1 \\\\ 2 \\\\ 3 \\end{bmatrix} = \\begin{bmatrix} 2 \\\\ -1 \\\\ 3 \\end{bmatrix}$.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
+    "yt_search_query_theory": "GATE Spatial Descriptions 3D Rotation Matrices SO(3) and Euler Angles lecture",
+    "yt_search_query_pyq": "GATE Spatial Descriptions 3D Rotation Matrices SO(3) and Euler Angles previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Spatial+Descriptions+3D+Rotation+Matrices+SO%283%29+and+Euler+Angles+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Spatial+Descriptions+3D+Rotation+Matrices+SO%283%29+and+Euler+Angles+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/playlist?list=PLn8PRpmsu08rzs_sY_pI8b8_b5n6WkS9F",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
   {
@@ -1043,7 +1207,11 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) [-4, 3, 0]^T",
     "pyq_explanation": "$R^T = \\begin{bmatrix} 0 & 1 & 0 \\\\ -1 & 0 & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}$. $-R^T p = - \\begin{bmatrix} 0(3) + 1(4) \\\\ -1(3) + 0(4) \\\\ 0 \\end{bmatrix} = - \\begin{bmatrix} 4 \\\\ -3 \\\\ 0 \\end{bmatrix} = \\begin{bmatrix} -4 \\\\ 3 \\\\ 0 \\end{bmatrix}$.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
+    "yt_search_query_theory": "GATE Spatial Descriptions Homogeneous Transformation Matrices SE(3) lecture",
+    "yt_search_query_pyq": "GATE Spatial Descriptions Homogeneous Transformation Matrices SE(3) previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Spatial+Descriptions+Homogeneous+Transformation+Matrices+SE%283%29+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Spatial+Descriptions+Homogeneous+Transformation+Matrices+SE%283%29+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/playlist?list=PLn8PRpmsu08rzs_sY_pI8b8_b5n6WkS9F",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
   {
@@ -1071,7 +1239,11 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) z_{i-1} to z_i measured about x_i",
     "pyq_explanation": "By D-H definition, $\\alpha_i$ is the angle of rotation from axis $z_{i-1}$ to axis $z_i$ measured around the common normal axis $x_i$.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
+    "yt_search_query_theory": "GATE Robot Kinematics Denavit-Hartenberg (D-H) 4-Parameter Convention lecture",
+    "yt_search_query_pyq": "GATE Robot Kinematics Denavit-Hartenberg (D-H) 4-Parameter Convention previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Robot+Kinematics+Denavit-Hartenberg+%28D-H%29+4-Parameter+Convention+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Robot+Kinematics+Denavit-Hartenberg+%28D-H%29+4-Parameter+Convention+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/playlist?list=PLn8PRpmsu08rzs_sY_pI8b8_b5n6WkS9F",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
   {
@@ -1099,7 +1271,11 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) +90 deg or -90 deg",
     "pyq_explanation": "$\\cos\\theta_2 = \\frac{x^2 + y^2 - l_1^2 - l_2^2}{2 l_1 l_2} = \\frac{2 + 0 - 1 - 1}{2(1)(1)} = \\frac{0}{2} = 0 \\implies \\theta_2 = \\pm 90^\\circ$.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
+    "yt_search_query_theory": "GATE Robot Kinematics Forward and Inverse Kinematics (Planar 2R/3R and SCARA) lecture",
+    "yt_search_query_pyq": "GATE Robot Kinematics Forward and Inverse Kinematics (Planar 2R/3R and SCARA) previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Robot+Kinematics+Forward+and+Inverse+Kinematics+%28Planar+2R%2F3R+and+SCARA%29+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Robot+Kinematics+Forward+and+Inverse+Kinematics+%28Planar+2R%2F3R+and+SCARA%29+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/playlist?list=PLn8PRpmsu08rzs_sY_pI8b8_b5n6WkS9F",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
   {
@@ -1127,7 +1303,11 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) theta_2 = 0 deg or 180 deg",
     "pyq_explanation": "$\\det(J) = (-l_1 s_1 - l_2 s_{12})(l_2 c_{12}) - (-l_2 s_{12})(l_1 c_1 + l_2 c_{12}) = l_1 l_2 (s_{12}c_1 - c_{12}s_1) = l_1 l_2 \\sin(\\theta_2)$. Singularities occur where $\\det(J) = 0 \\implies \\sin\\theta_2 = 0 \\implies \\theta_2 = 0^\\circ \\text{ or } 180^\\circ$ (fully extended or folded back).",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
+    "yt_search_query_theory": "GATE Differential Kinematics Manipulator Jacobian Matrix and Kinematic Singularities lecture",
+    "yt_search_query_pyq": "GATE Differential Kinematics Manipulator Jacobian Matrix and Kinematic Singularities previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Differential+Kinematics+Manipulator+Jacobian+Matrix+and+Kinematic+Singularities+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Differential+Kinematics+Manipulator+Jacobian+Matrix+and+Kinematic+Singularities+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/playlist?list=PLn8PRpmsu08rzs_sY_pI8b8_b5n6WkS9F",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
   {
@@ -1155,7 +1335,11 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) Symmetric and positive definite",
     "pyq_explanation": "Kinetic energy is quadratic $K = \\frac{1}{2}\\dot{q}^T M(q) \\dot{q} > 0$ for any non-zero $\\dot{q}$, which guarantees that $M(q)$ is symmetric and strictly positive definite.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
+    "yt_search_query_theory": "GATE Robot Dynamics Euler-Lagrange Formulation and Mass Inertia Matrix lecture",
+    "yt_search_query_pyq": "GATE Robot Dynamics Euler-Lagrange Formulation and Mass Inertia Matrix previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Robot+Dynamics+Euler-Lagrange+Formulation+and+Mass+Inertia+Matrix+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Robot+Dynamics+Euler-Lagrange+Formulation+and+Mass+Inertia+Matrix+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/playlist?list=PLn8PRpmsu08rzs_sY_pI8b8_b5n6WkS9F",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
   {
@@ -1178,6 +1362,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "1.8",
     "pyq_explanation": "$\\beta = \\frac{360^\\circ}{m N_r} = \\frac{360^\\circ}{4 \\times 50} = \\frac{360}{200} = 1.8^\\circ$.",
+    "yt_search_query_theory": "GATE Actuators and Drives Stepper Motors, DC Servos, BLDC Motors and Harmonic Drives lecture",
+    "yt_search_query_pyq": "GATE Actuators and Drives Stepper Motors, DC Servos, BLDC Motors and Harmonic Drives previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Actuators+and+Drives+Stepper+Motors%2C+DC+Servos%2C+BLDC+Motors+and+Harmonic+Drives+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Actuators+and+Drives+Stepper+Motors%2C+DC+Servos%2C+BLDC+Motors+and+Harmonic+Drives+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -1201,6 +1389,10 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "10.0",
     "pyq_explanation": "By similar triangles: $\\frac{h_{image}}{f} = \\frac{H_{object}}{Z} \\implies h_{image} = \\frac{H \\cdot f}{Z} = \\frac{2000\\text{ mm} \\times 50\\text{ mm}}{10000\\text{ mm}} = 10.0\\text{ mm}$.",
+    "yt_search_query_theory": "GATE Robot Vision and Perception Camera Calibration, Pinhole Model and Image Processing lecture",
+    "yt_search_query_pyq": "GATE Robot Vision and Perception Camera Calibration, Pinhole Model and Image Processing previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Robot+Vision+and+Perception+Camera+Calibration%2C+Pinhole+Model+and+Image+Processing+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Robot+Vision+and+Perception+Camera+Calibration%2C+Pinhole+Model+and+Image+Processing+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -1229,6 +1421,10 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) OR function",
     "pyq_explanation": "Parallel branches in ladder logic provide alternate current paths from the left power rail to the output coil, which corresponds directly to a Boolean OR operation ($Y = A + B$).",
+    "yt_search_query_theory": "GATE Industrial Automation PLC Programming (Ladder Logic), Timers, Counters and SCADA lecture",
+    "yt_search_query_pyq": "GATE Industrial Automation PLC Programming (Ladder Logic), Timers, Counters and SCADA previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Industrial+Automation+PLC+Programming+%28Ladder+Logic%29%2C+Timers%2C+Counters+and+SCADA+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Industrial+Automation+PLC+Programming+%28Ladder+Logic%29%2C+Timers%2C+Counters+and+SCADA+previous+year+questions+pyqs",
     "yt_theory_vid_id": "04a37Ue7e_Y",
     "yt_pyq_vid_id": "04a37Ue7e_Y"
   },
@@ -1252,8 +1448,12 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "4",
     "pyq_explanation": "Cyclicity of 7 is 4: $95 = 4(23) + 3 \\implies 7^3 = 343 \\implies 3$. Cyclicity of 3 is 4: $58 = 4(14) + 2 \\implies 3^2 = 9$. Unit digit $= (13 - 9) = 4$.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
-    "yt_pyq_vid_id": "2j5SBLu_U1U"
+    "yt_search_query_theory": "GATE Quantitative Aptitude Number Theory, Cyclicity and Progressions lecture",
+    "yt_search_query_pyq": "GATE Quantitative Aptitude Number Theory, Cyclicity and Progressions previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Quantitative+Aptitude+Number+Theory%2C+Cyclicity+and+Progressions+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Quantitative+Aptitude+Number+Theory%2C+Cyclicity+and+Progressions+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/@FeelFreetoLearn",
+    "yt_pyq_vid_id": "https://www.youtube.com/@CareerRide"
   },
   {
     "id": "A90",
@@ -1275,7 +1475,11 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "20.0",
     "pyq_explanation": "$\\text{Reduction} = \\frac{r}{100+r} \\times 100\\% = \\frac{25}{125} \\times 100 = 20.0\\%$.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
+    "yt_search_query_theory": "GATE Quantitative Aptitude Percentages, Profit-Loss and Simple/Compound Interest lecture",
+    "yt_search_query_pyq": "GATE Quantitative Aptitude Percentages, Profit-Loss and Simple/Compound Interest previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Quantitative+Aptitude+Percentages%2C+Profit-Loss+and+Simple%2FCompound+Interest+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Quantitative+Aptitude+Percentages%2C+Profit-Loss+and+Simple%2FCompound+Interest+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/@FeelFreetoLearn",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
   {
@@ -1298,7 +1502,11 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "3.4286",
     "pyq_explanation": "Total capacity = $\\text{LCM}(6, 8) = 24$ units. Rate A = $4\\text{ u/h}$, Rate B = $3\\text{ u/h}$. Combined rate = $7\\text{ u/h}$. Time = $\\frac{24}{7} \\approx 3.4286\\text{ hours}$.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
+    "yt_search_query_theory": "GATE Quantitative Aptitude Time, Work, Speed, Distance and Relative Motion lecture",
+    "yt_search_query_pyq": "GATE Quantitative Aptitude Time, Work, Speed, Distance and Relative Motion previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Quantitative+Aptitude+Time%2C+Work%2C+Speed%2C+Distance+and+Relative+Motion+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Quantitative+Aptitude+Time%2C+Work%2C+Speed%2C+Distance+and+Relative+Motion+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/@FeelFreetoLearn",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
   {
@@ -1326,8 +1534,12 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "C) Some innovators are scientists",
     "pyq_explanation": "Statement 2 directly converts: 'Some scientists are innovators' $\\iff$ 'Some innovators are scientists'. No definite link connects engineers and innovators.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
-    "yt_pyq_vid_id": "2j5SBLu_U1U"
+    "yt_search_query_theory": "GATE Analytical Reasoning Deductive Reasoning: Syllogisms and Venn Diagrams lecture",
+    "yt_search_query_pyq": "GATE Analytical Reasoning Deductive Reasoning: Syllogisms and Venn Diagrams previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Analytical+Reasoning+Deductive+Reasoning%3A+Syllogisms+and+Venn+Diagrams+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Analytical+Reasoning+Deductive+Reasoning%3A+Syllogisms+and+Venn+Diagrams+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/@FeelFreetoLearn",
+    "yt_pyq_vid_id": "https://www.youtube.com/@CareerRide"
   },
   {
     "id": "A93",
@@ -1354,7 +1566,11 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "B) Face 5",
     "pyq_explanation": "In an unfolded strip/column, opposite faces always occupy alternate positions (separated by exactly 1 intervening face). Hence face 1 is opposite to face 5.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
+    "yt_search_query_theory": "GATE Spatial Aptitude 2D Paper Folding, Mirror Images and 3D Spatial Projections lecture",
+    "yt_search_query_pyq": "GATE Spatial Aptitude 2D Paper Folding, Mirror Images and 3D Spatial Projections previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Spatial+Aptitude+2D+Paper+Folding%2C+Mirror+Images+and+3D+Spatial+Projections+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Spatial+Aptitude+2D+Paper+Folding%2C+Mirror+Images+and+3D+Spatial+Projections+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/@CareerRide",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
   {
@@ -1382,7 +1598,11 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) If the engineer had calibrated the sensor, the measurement error would have been avoided.",
     "pyq_explanation": "Standard 3rd conditional rule for unreal past events: 'If + past perfect (had calibrated) ... would have + past participle (would have been avoided)'.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
+    "yt_search_query_theory": "GATE Verbal Ability English Grammar, Conditionals and Critical Reasoning lecture",
+    "yt_search_query_pyq": "GATE Verbal Ability English Grammar, Conditionals and Critical Reasoning previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Verbal+Ability+English+Grammar%2C+Conditionals+and+Critical+Reasoning+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Verbal+Ability+English+Grammar%2C+Conditionals+and+Critical+Reasoning+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/@CareerRide",
     "yt_pyq_vid_id": "2j5SBLu_U1U"
   },
   {
@@ -1405,8 +1625,12 @@ const SYLLABUS_DATA = [
     "pyq_options": [],
     "pyq_correct_answer": "-4.44",
     "pyq_explanation": "$|G(j\\sqrt{2})| = \\frac{10}{\\sqrt{2} \\cdot \\sqrt{1+2} \\cdot \\sqrt{4+2}} = \\frac{10}{\\sqrt{2} \\cdot \\sqrt{3} \\cdot \\sqrt{6}} = \\frac{10}{6} = 1.667$. $GM = -20\\log_{10}(1.667) = -20(0.2218) = -4.44\\text{ dB}$ (Unstable system).",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
-    "yt_pyq_vid_id": "2j5SBLu_U1U"
+    "yt_search_query_theory": "GATE Formula Marathon High-Weightage Multi-Subject Marathon and Formula Blitz lecture",
+    "yt_search_query_pyq": "GATE Formula Marathon High-Weightage Multi-Subject Marathon and Formula Blitz previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Formula+Marathon+High-Weightage+Multi-Subject+Marathon+and+Formula+Blitz+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Formula+Marathon+High-Weightage+Multi-Subject+Marathon+and+Formula+Blitz+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://www.youtube.com/",
+    "yt_pyq_vid_id": "https://www.youtube.com/"
   },
   {
     "id": "REV02",
@@ -1433,8 +1657,12 @@ const SYLLABUS_DATA = [
     ],
     "pyq_correct_answer": "A) 45 to 55 minutes",
     "pyq_explanation": "Allocating 45\u201355 minutes to sweep through all direct 1-mark questions locks in 30\u201335 high-accuracy marks early, leaving 90 minutes for complex 2-mark analytical NATs and 30 minutes for review.",
-    "yt_theory_vid_id": "2j5SBLu_U1U",
-    "yt_pyq_vid_id": "2j5SBLu_U1U"
+    "yt_search_query_theory": "GATE Full-Length Mock CBTs Full-Length IIT Madras Pattern 3-Hour Mock CBT Practice lecture",
+    "yt_search_query_pyq": "GATE Full-Length Mock CBTs Full-Length IIT Madras Pattern 3-Hour Mock CBT Practice previous year questions pyqs",
+    "yt_search_url_theory": "https://www.youtube.com/results?search_query=GATE+Full-Length+Mock+CBTs+Full-Length+IIT+Madras+Pattern+3-Hour+Mock+CBT+Practice+lecture",
+    "yt_search_url_pyq": "https://www.youtube.com/results?search_query=GATE+Full-Length+Mock+CBTs+Full-Length+IIT+Madras+Pattern+3-Hour+Mock+CBT+Practice+previous+year+questions+pyqs",
+    "yt_theory_vid_id": "https://gate2027.iitm.ac.in",
+    "yt_pyq_vid_id": "https://www.youtube.com/"
   }
 ];
 
