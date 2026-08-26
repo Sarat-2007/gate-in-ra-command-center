@@ -2,6 +2,7 @@
 Error Quarantine & Redo Mistakes Queue Component
 """
 import streamlit as st
+from datetime import date
 from database.db import get_quarantined_errors, update_error_mastery, add_error_quarantine, get_all_topics
 from config import ERROR_TAXONOMY
 
@@ -87,8 +88,9 @@ def render_error_quarantine() -> None:
                 if q_desc:
                     matched_topic = next((t for t in all_topics if t["topic_name"] == topic_choice), None)
                     tid = matched_topic["id"] if matched_topic else "GEN"
+                    today_str = date.today().strftime("%Y-%m-%d")
                     add_error_quarantine(
-                        date_logged=st.session_state.get("checkin_date_str", "2026-08-26"),
+                        date_logged=st.session_state.get("checkin_date_str", today_str),
                         topic_id=tid,
                         topic_name=topic_choice,
                         error_code=err_code_choice,

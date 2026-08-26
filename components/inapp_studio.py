@@ -5,6 +5,7 @@ and side-by-side TCS iON Virtual Calculator into a single zero-distraction scree
 """
 import streamlit as st
 import math
+from datetime import date
 from database.db import get_all_topics, update_topic_completion, add_error_quarantine
 from components.virtual_calc import render_virtual_calc
 from config import DOMAINS, ERROR_TAXONOMY
@@ -107,31 +108,40 @@ def render_inapp_studio() -> None:
                 quarantine_btn = st.button("⚠️ Quarantine Mistake", key=f"btn_quar_{topic['id']}", use_container_width=True)
 
             if check_btn:
-                if q_type == "MCQ":
-                    if user_answer and user_answer == correct_ans:
-                        st.success(f"🎉 **Correct Answer!** ({correct_ans})")
+                u_str = (user_answer or "").strip()
+                c_str = (correct_ans or "").strip()
+                is_correct = False
+
+                if not u_str or not c_str:
+                    is_correct = False
+                elif q_type == "MCQ":
+                    if u_str == c_str:
+                        is_correct = True
                     else:
-                        st.error(f"❌ **Incorrect.** Correct answer is: **{correct_ans}**")
-                else:
+                        u_p = u_str.split(")")[0].strip().upper() if ")" in u_str else u_str.strip().upper()
+                        c_p = c_str.split(")")[0].strip().upper() if ")" in c_str else c_str.strip().upper()
+                        is_correct = (u_p == c_p and len(u_p) == 1)
+                else: # NAT
                     try:
-                        u_val = float(user_answer)
-                        c_val = float(correct_ans)
-                        if abs(u_val - c_val) <= 0.05 * abs(c_val) or abs(u_val - c_val) <= 0.1:
-                            st.success(f"🎉 **Correct Answer!** (Value: {correct_ans})")
-                        else:
-                            st.error(f"❌ **Incorrect.** Correct numerical answer is: **{correct_ans}**")
+                        u_val = float(u_str.replace(",", "."))
+                        c_val = float(c_str.replace(",", "."))
+                        if not (math.isnan(u_val) or math.isnan(c_val) or math.isinf(u_val) or math.isinf(c_val)):
+                            is_correct = (abs(u_val - c_val) <= 0.05 * abs(c_val) or abs(u_val - c_val) <= 0.1)
                     except Exception:
-                        if user_answer == correct_ans:
-                            st.success(f"🎉 **Correct Answer!** ({correct_ans})")
-                        else:
-                            st.error(f"❌ Correct answer is: **{correct_ans}**")
+                        is_correct = (u_str == c_str)
+
+                if is_correct:
+                    st.success(f"🎉 **Correct Answer!** ({correct_ans})")
+                else:
+                    st.error(f"❌ **Incorrect.** Correct answer is: **{correct_ans}**")
 
                 with st.expander("📖 View Step-by-Step Mathematical Derivation", expanded=True):
                     st.markdown(f"**Step-by-Step Solution:**\n\n{explanation}")
 
             if quarantine_btn:
+                today_str = date.today().strftime("%Y-%m-%d")
                 add_error_quarantine(
-                    date_logged=st.session_state.get("checkin_date_str", "2026-08-26"),
+                    date_logged=st.session_state.get("checkin_date_str", today_str),
                     topic_id=topic["id"],
                     topic_name=topic["topic_name"],
                     error_code="C",

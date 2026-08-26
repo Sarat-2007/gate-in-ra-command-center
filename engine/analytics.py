@@ -135,15 +135,18 @@ def get_error_distribution() -> Dict[str, Any]:
 def calculate_backlog_recovery() -> Dict[str, Any]:
     """Calculates adaptive recovery pace if the candidate is lagging."""
     metrics = calculate_dashboard_metrics()
-    remaining_topics = metrics["total_topics"] - metrics["completed_count"]
+    remaining_topics = max(0, metrics["total_topics"] - metrics["completed_count"])
     remaining_days = max(1, metrics["days_remaining"])
     remaining_weeks = max(1, remaining_days // 7)
 
     required_topics_per_week = round(remaining_topics / remaining_weeks, 1)
-    recommended_daily_window = min(
-        DAILY_STUDY_CAP_HOURS,
-        max(1.0, round((required_topics_per_week * 1.5) / 6, 2))
-    )
+    if remaining_topics == 0:
+        recommended_daily_window = 0.5
+    else:
+        recommended_daily_window = min(
+            DAILY_STUDY_CAP_HOURS,
+            max(0.5, round((required_topics_per_week * 1.5) / 6, 2))
+        )
 
     return {
         "remaining_topics": remaining_topics,

@@ -11,16 +11,31 @@ from database.seed_data import SYLLABUS_SEED_DATA
 
 
 def get_db_connection() -> sqlite3.Connection:
-    """Creates a database connection with dictionary-like row factory."""
-    conn = sqlite3.connect(str(DB_PATH))
+    """Creates a database connection with dictionary-like row factory and concurrency timeout."""
+    conn = sqlite3.connect(str(DB_PATH), timeout=30.0)
     conn.row_factory = sqlite3.Row
     return conn
+
+
+def _safe_json_loads(val: Any, default: Any = None) -> Any:
+    """Safely deserializes JSON with fallback default to prevent crash on corrupt data."""
+    if default is None:
+        default = []
+    if val is None or val == "":
+        return default
+    if isinstance(val, (list, dict)):
+        return val
+    try:
+        return json.loads(val)
+    except Exception:
+        return default
 
 
 def init_db() -> None:
     """Initializes the database schema and seeds initial syllabus topics."""
     conn = get_db_connection()
     cursor = conn.cursor()
+    cursor.execute("PRAGMA journal_mode=WAL;")
 
     # 1. Daily Check-Ins Table
     cursor.execute("""
@@ -198,13 +213,7 @@ def get_all_topics() -> List[Dict[str, Any]]:
     rows = []
     for r in cursor.fetchall():
         d = dict(r)
-        if "pyq_options" in d and d["pyq_options"]:
-            try:
-                d["pyq_options"] = json.loads(d["pyq_options"])
-            except Exception:
-                d["pyq_options"] = []
-        else:
-            d["pyq_options"] = []
+        d["pyq_options"] = _safe_json_loads(d.get("pyq_options"), [])
         rows.append(d)
     conn.close()
     return rows
@@ -279,8 +288,8 @@ def get_checkin_by_date(checkin_date: str) -> Optional[Dict[str, Any]]:
     conn.close()
     if row:
         data = dict(row)
-        data["completed_topics"] = json.loads(data["completed_topics"]) if data["completed_topics"] else []
-        data["error_codes"] = json.loads(data["error_codes"]) if data["error_codes"] else []
+        data["completed_topics"] = _safe_json_loads(data.get("completed_topics"), [])
+        data["error_codes"] = _safe_json_loads(data.get("error_codes"), [])
         return data
     return None
 
@@ -293,8 +302,8 @@ def get_all_checkins() -> List[Dict[str, Any]]:
     rows = []
     for r in cursor.fetchall():
         d = dict(r)
-        d["completed_topics"] = json.loads(d["completed_topics"]) if d["completed_topics"] else []
-        d["error_codes"] = json.loads(d["error_codes"]) if d["error_codes"] else []
+        d["completed_topics"] = _safe_json_loads(d.get("completed_topics"), [])
+        d["error_codes"] = _safe_json_loads(d.get("error_codes"), [])
         rows.append(d)
     conn.close()
     return rows
@@ -415,9 +424,9 @@ def update_formula_review(topic_id: str, quality_score: int) -> None:
         return
 
     curr = dict(row)
-    reps = curr["repetition_count"]
-    interval = curr["interval_days"]
-    ease = curr["ease_factor"]
+    reps = curr.get("repetition_count") if curr.get("repetition_count") is not None else 0
+    interval = curr.get("interval_days") if curr.get("interval_days") is not None else 1
+    ease = curr.get("ease_factor") if curr.get("ease_factor") is not None else 2.5
 
     today = date.today()
     if quality_score >= 1:
@@ -434,6 +443,7 @@ def update_formula_review(topic_id: str, quality_score: int) -> None:
         interval = 1
         ease = max(1.3, ease - 0.2)
 
+    interval = min(365, max(1, interval))
     status = "Mastered" if reps >= 4 else ("Reviewing" if reps >= 1 else "Learning")
     next_date = (today + timedelta(days=interval)).strftime("%Y-%m-%d")
 

@@ -35,11 +35,17 @@ def generate_next_day_action_plan(
         "core_summary": "Comprehensive revision across all GATE domains."
     }
 
-    # Calculate allocated time splits based on study window
-    total_minutes = int(study_window_hours * 60)
-    recall_mins = max(15, int(total_minutes * 0.20))
-    theory_mins = max(30, int(total_minutes * 0.50))
-    pyq_mins = total_minutes - recall_mins - theory_mins
+    # Calculate allocated time splits based on study window (ensuring positive minutes for all segments)
+    effective_window = max(0.25, study_window_hours) if study_window_hours > 0 else 1.5
+    total_minutes = int(effective_window * 60)
+    if total_minutes <= 45:
+        recall_mins = max(5, int(total_minutes * 0.20))
+        theory_mins = max(5, int(total_minutes * 0.50))
+        pyq_mins = max(5, total_minutes - recall_mins - theory_mins)
+    else:
+        recall_mins = max(15, int(total_minutes * 0.20))
+        theory_mins = max(30, int(total_minutes * 0.50))
+        pyq_mins = max(10, total_minutes - recall_mins - theory_mins)
 
     # Extract recent error codes description
     error_summary_list = []

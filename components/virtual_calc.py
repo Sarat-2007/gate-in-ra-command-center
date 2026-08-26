@@ -92,10 +92,10 @@ def render_virtual_calc() -> None:
                 apply_single_op(math.exp)
         with r2_5:
             if st.button("DEL", use_container_width=True):
-                if len(st.session_state.calc_display) > 1:
-                    st.session_state.calc_display = st.session_state.calc_display[:-1]
-                else:
+                if st.session_state.calc_display == "Error" or len(st.session_state.calc_display) <= 1:
                     st.session_state.calc_display = "0"
+                else:
+                    st.session_state.calc_display = st.session_state.calc_display[:-1]
                 st.rerun()
 
         # Numeric Keypad Row 1
@@ -149,10 +149,13 @@ def render_virtual_calc() -> None:
             if st.button(".", use_container_width=True): append_digit(".")
         with n4_3:
             if st.button("+/-", use_container_width=True):
-                if st.session_state.calc_display.startswith("-"):
-                    st.session_state.calc_display = st.session_state.calc_display[1:]
+                curr = st.session_state.calc_display
+                if curr in ["Error", "0", "-0", ""]:
+                    st.session_state.calc_display = "0"
+                elif curr.startswith("-"):
+                    st.session_state.calc_display = curr[1:]
                 else:
-                    st.session_state.calc_display = "-" + st.session_state.calc_display
+                    st.session_state.calc_display = "-" + curr
                 st.rerun()
         with n4_4:
             if st.button("+", use_container_width=True): append_operator("+")
@@ -188,7 +191,13 @@ def apply_single_op(func):
     try:
         val = float(eval_safe(st.session_state.calc_display))
         res = func(val)
-        st.session_state.calc_display = str(round(res, 8) if isinstance(res, float) else res)
+        if isinstance(res, (int, float)):
+            if math.isnan(res) or math.isinf(res):
+                st.session_state.calc_display = "Error"
+            else:
+                st.session_state.calc_display = str(round(res, 8) if isinstance(res, float) else res)
+        else:
+            st.session_state.calc_display = str(res)
     except Exception:
         st.session_state.calc_display = "Error"
     st.rerun()
@@ -200,23 +209,33 @@ def apply_trig_op(func):
         if not st.session_state.calc_rad_mode:
             val = math.radians(val)
         res = func(val)
-        st.session_state.calc_display = str(round(res, 8))
+        if math.isnan(res) or math.isinf(res):
+            st.session_state.calc_display = "Error"
+        else:
+            st.session_state.calc_display = str(round(res, 8))
     except Exception:
         st.session_state.calc_display = "Error"
     st.rerun()
 
 
 def eval_safe(expr: str):
+    if not expr or not expr.strip():
+        raise ValueError("Empty expression")
     allowed_names = {"math": math}
-    clean_expr = expr.replace("^", "**")
+    clean_expr = expr.strip().replace("^", "**")
     return eval(clean_expr, {"__builtins__": None}, allowed_names)
 
 
 def evaluate_expression():
     try:
         res = eval_safe(st.session_state.calc_display)
-        if isinstance(res, float):
-            st.session_state.calc_display = str(round(res, 8))
+        if isinstance(res, (int, float)):
+            if math.isnan(res) or math.isinf(res):
+                st.session_state.calc_display = "Error"
+            elif isinstance(res, float):
+                st.session_state.calc_display = str(round(res, 8))
+            else:
+                st.session_state.calc_display = str(res)
         else:
             st.session_state.calc_display = str(res)
     except Exception:

@@ -1,0 +1,626 @@
+--- [TOPIC 1/57] ID: M01 | Week: 1 | Domain: Engineering Mathematics ---
+Topic: Rank of Matrix & Systems of Linear Equations (Module: Linear Algebra)
+Formula: \text{Consistent if } \text{rank}(A) = \text{rank}(A|B). \text{ Unique: } r=n, \text{ Infinite: } r<n.
+Summary: Echelon reduction, pivots, Rouché-Capelli consistency test for non-homogeneous AX=B and homogeneous AX=0 systems.
+Type: MCQ | Options: ['A) k = 1 or k = 2', 'B) k = -1 or k = 2', 'C) k = 0 only', 'D) No real value of k']
+Question: For what value of $k$ does the system of equations $x + y + z = 1$, $x + 2y + 4z = k$, $x + 4y + 10z = k^2$ have a non-unique (infinite) solution?
+Correct Answer: A) k = 1 or k = 2
+Explanation: Reducing the augmented matrix $[A|B]$ to row echelon form shows that $\text{det}(A) = 0$. For consistency when $r(A)=2$, the third row of the augmented column must satisfy $k^2 - 3k + 2 = 0 \implies (k-1)(k-2)=0 \implies k = 1 \text{ or } 2$.
+Theory YT: Gajendra Purohit: System of Linear Equations & Rank | https://www.youtube.com/watch?v=2j5SBLu_U1U
+PYQ YT: Gate Wallah: Linear Systems & Consistency GATE PYQs | https://www.youtube.com/watch?v=Ip3X9LOh2dk
+
+--- [TOPIC 2/57] ID: M02 | Week: 1 | Domain: Engineering Mathematics ---
+Topic: Matrix Inverses, Determinants & LU Decomposition (Module: Linear Algebra)
+Formula: A^{-1} = \frac{\text{adj}(A)}{\det(A)}, \quad \det(kA) = k^n \det(A), \quad A = LU
+Summary: Determinant multilinearity, cofactor expansion, adjugate relations, Gaussian Doolittle/Crout LU decomposition.
+Type: NAT | Options: []
+Question: Let $A$ be a $3 \times 3$ real matrix with $\det(A) = 4$. What is the value of $\det(2 \cdot \text{adj}(A))$?
+Correct Answer: 128
+Explanation: For an $n \times n$ matrix, $\det(\text{adj}(A)) = (\det(A))^{n-1}$. For $n=3$, $\det(\text{adj}(A)) = 4^{3-1} = 16$. Furthermore, $\det(k M) = k^n \det(M)$. Hence, $\det(2 \cdot \text{adj}(A)) = 2^3 \times 16 = 8 \times 16 = 128$.
+Theory YT: 3Blue1Brown: Inverse Matrices, Column Space & Null Space | https://www.youtube.com/watch?v=uQhTuRlWM3E
+PYQ YT: Gate Academy: Determinant Properties & Inverses PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 3/57] ID: M03 | Week: 1 | Domain: Engineering Mathematics ---
+Topic: Eigenvalues, Eigenvectors & Diagonalization (Module: Linear Algebra)
+Formula: \det(A - \lambda I) = 0, \quad \sum \lambda_i = \text{tr}(A), \quad \prod \lambda_i = \det(A)
+Summary: Characteristic polynomial, algebraic vs geometric multiplicity, similarity transformation $A = PDP^{-1}$, symmetric matrix real eigenvalues.
+Type: MCQ | Options: ['A) 1 and 2', 'B) 0 and 3', 'C) -1 and 4', 'D) 2 and 2']
+Question: A $3 \times 3$ matrix has trace equal to 6 and determinant equal to 6. If one of the eigenvalues is 3, the other two eigenvalues are:
+Correct Answer: A) 1 and 2
+Explanation: Given $\lambda_1 = 3$. Sum of eigenvalues $\lambda_1 + \lambda_2 + \lambda_3 = \text{tr}(A) = 6 \implies \lambda_2 + \lambda_3 = 3$. Product $\lambda_1 \lambda_2 \lambda_3 = \det(A) = 6 \implies \lambda_2 \lambda_3 = 2$. Solving gives $\lambda_2=1, \lambda_3=2$.
+Theory YT: 3Blue1Brown: Eigenvectors and Eigenvalues Visually | https://www.youtube.com/watch?v=PFDu9oVAE-g
+PYQ YT: Gate Wallah: Eigenvalues 2-Mark Master PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 4/57] ID: M04 | Week: 1 | Domain: Engineering Mathematics ---
+Topic: Cayley-Hamilton Theorem & Quadratic Forms (Module: Linear Algebra)
+Formula: P(A) = 0, \quad A^{-1} = -\frac{1}{a_0}(A^{n-1} + a_{n-1}A^{n-2} + \dots + a_1 I)
+Summary: Every square matrix satisfies its own characteristic equation, evaluating matrix polynomials $A^{100}$, Sylvester criterion for positive definiteness.
+Type: MCQ | Options: ['A) Zero Matrix O', 'B) Identity Matrix I', 'C) A', 'D) 2I']
+Question: If $A = \begin{bmatrix} 1 & 2 \\ 0 & 2 \end{bmatrix}$, then using Cayley-Hamilton theorem, $A^3 - 3A^2 + 2A$ equals:
+Correct Answer: A) Zero Matrix O
+Explanation: The characteristic polynomial is $|A - \lambda I| = (1-\lambda)(2-\lambda) = \lambda^2 - 3\lambda + 2 = 0$. By Cayley-Hamilton, $A^2 - 3A + 2I = O$. Multiplying by $A$ gives $A^3 - 3A^2 + 2A = O$.
+Theory YT: Gajendra Purohit: Cayley-Hamilton & High Powers of Matrix | https://www.youtube.com/watch?v=2j5SBLu_U1U
+PYQ YT: Kreatryx: Quadratic Forms & Definiteness GATE PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 5/57] ID: M05 | Week: 2 | Domain: Engineering Mathematics ---
+Topic: Limits, Continuity, Differentiability & L'Hôpital (Module: Calculus)
+Formula: \lim_{x\to a} \frac{f(x)}{g(x)} = \lim_{x\to a} \frac{f'(x)}{g'(x)} \quad \left[\frac{0}{0} \text{ or } \frac{\infty}{\infty}\right]
+Summary: Evaluating $0/0, \infty/\infty, 1^\infty, 0^0, \infty-\infty$ forms using series expansion and L'Hôpital differentiation.
+Type: NAT | Options: []
+Question: Evaluate the limit: $\lim_{x \to 0} \frac{x - \sin x}{x^3}$.
+Correct Answer: 0.1667
+Explanation: Using Taylor series expansion $\sin x = x - \frac{x^3}{6} + \dots$, we get $\lim_{x \to 0} \frac{x - (x - x^3/6)}{x^3} = \frac{1}{6} \approx 0.1667$.
+Theory YT: Gajendra Purohit: Limits, Indeterminate Forms & L'Hopital | https://www.youtube.com/watch?v=rB83DpBJQsE
+PYQ YT: Gate Wallah: Limits 1-Mark & 2-Mark NAT PYQs | https://www.youtube.com/watch?v=rB83DpBJQsE
+
+--- [TOPIC 6/57] ID: M06 | Week: 2 | Domain: Engineering Mathematics ---
+Topic: Mean Value Theorems, Taylor & Maclaurin Series (Module: Calculus)
+Formula: f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n, \quad f'(c) = \frac{f(b)-f(a)}{b-a}
+Summary: Rolle's Theorem, Lagrange's MVT, Cauchy's MVT, Taylor polynomial truncation error estimation.
+Type: NAT | Options: []
+Question: The coefficient of $(x-1)^2$ in the Taylor series expansion of $f(x) = x \ln x$ about $x = 1$ is:
+Correct Answer: 0.5
+Explanation: $f'(x) = 1 + \ln x$, $f''(x) = 1/x$. At $x=1$, $f''(1) = 1$. The coefficient of $(x-1)^2$ is $\frac{f''(1)}{2!} = \frac{1}{2} = 0.5$.
+Theory YT: 3Blue1Brown: Taylor Series & Higher Order Approximations | https://www.youtube.com/watch?v=3d6DsjIBzJ4
+PYQ YT: Kreatryx: Mean Value Theorems GATE Questions | https://www.youtube.com/watch?v=rB83DpBJQsE
+
+--- [TOPIC 7/57] ID: M07 | Week: 2 | Domain: Engineering Mathematics ---
+Topic: Partial Derivatives, Maxima/Minima & Saddle Points (Module: Calculus)
+Formula: \Delta = rt - s^2, \quad r = f_{xx}, s = f_{xy}, t = f_{yy}. \quad \Delta>0, r>0 \implies \text{Min}
+Summary: Stationary points, Hessian matrix test ($\Delta > 0, r < 0$ local max, $\Delta < 0$ saddle point), Lagrange multipliers.
+Type: MCQ | Options: ['A) Local minimum at (2, -3)', 'B) Local maximum at (2, -3)', 'C) Saddle point at (2, -3)', 'D) Local minimum at (-2, 3)']
+Question: The function $f(x,y) = x^2 + y^2 - 4x + 6y + 13$ has a:
+Correct Answer: A) Local minimum at (2, -3)
+Explanation: $f_x = 2x-4=0 \implies x=2$; $f_y = 2y+6=0 \implies y=-3$. $r = f_{xx} = 2$, $s = f_{xy} = 0$, $t = f_{yy} = 2$. $\Delta = rt - s^2 = 4 > 0$ and $r = 2 > 0 \implies$ Local minimum at $(2, -3)$ with value 0.
+Theory YT: Gajendra Purohit: Maxima and Minima for Two Variables | https://www.youtube.com/watch?v=rB83DpBJQsE
+PYQ YT: Gate Academy: 2-Variable Extrema & Saddle Points PYQs | https://www.youtube.com/watch?v=rB83DpBJQsE
+
+--- [TOPIC 8/57] ID: M08 | Week: 2 | Domain: Engineering Mathematics ---
+Topic: Multiple Integrals & Change of Variables (Module: Calculus)
+Formula: \iint_R f(x,y) dx dy = \iint_{R'} f(r\cos\theta, r\sin\theta) r dr d\theta, \quad dx dy = |J| du dv
+Summary: Double and triple integrals, changing order of integration in non-rectangular domains, Jacobian polar transformation.
+Type: NAT | Options: []
+Question: Evaluate $\int_0^1 \int_0^{\sqrt{1-x^2}} (x^2+y^2) dy dx$ using polar coordinates.
+Correct Answer: 0.3927
+Explanation: In polar coordinates, $x^2+y^2 = r^2$, $dy dx = r dr d\theta$. Region is 1st quadrant of circle of radius 1: $\int_0^{\pi/2} d\theta \int_0^1 r^3 dr = [\theta]_0^{\pi/2} [\frac{r^4}{4}]_0^1 = \frac{\pi}{2} \times \frac{1}{4} = \frac{\pi}{8} \approx 0.3927$.
+Theory YT: Gajendra Purohit: Double Integrals & Change of Order | https://www.youtube.com/watch?v=rB83DpBJQsE
+PYQ YT: Gate Wallah: Double & Triple Integrals GATE PYQs | https://www.youtube.com/watch?v=rB83DpBJQsE
+
+--- [TOPIC 9/57] ID: M09 | Week: 3 | Domain: Engineering Mathematics ---
+Topic: Gradient, Directional Derivative, Divergence & Curl (Module: Vector Calculus)
+Formula: D_{\hat{u}} f = \nabla f \cdot \hat{u}, \quad \nabla \cdot \vec{v} = \text{div } \vec{v}, \quad \nabla \times \vec{v} = \text{curl } \vec{v}, \quad \nabla \times (\nabla \phi) = 0
+Summary: Scalar and vector fields, steepest ascent gradient direction, maximum rate of change $|\nabla f|$, solenoidal ($\nabla \cdot \vec{v}=0$) vs irrotational ($\nabla \times \vec{v}=0$).
+Type: NAT | Options: []
+Question: The maximum directional derivative of $\phi(x,y,z) = x^2 y z$ at the point $(1, 2, -1)$ has magnitude:
+Correct Answer: 4.5826
+Explanation: $\nabla \phi = (2xyz)\hat{i} + (x^2 z)\hat{j} + (x^2 y)\hat{k}$. At $(1, 2, -1)$: $\nabla \phi = -4\hat{i} - 1\hat{j} + 2\hat{k}$. Maximum directional derivative is $|\nabla \phi| = \sqrt{(-4)^2 + (-1)^2 + (2)^2} = \sqrt{16+1+4} = \sqrt{21} \approx 4.5826$.
+Theory YT: 3Blue1Brown: Divergence and Curl Visual Intuition | https://www.youtube.com/watch?v=rB83DpBJQsE
+PYQ YT: Gate Wallah: Vector Differential Calculus PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 10/57] ID: M10 | Week: 3 | Domain: Engineering Mathematics ---
+Topic: Line Integrals, Work Done & Conservative Fields (Module: Vector Calculus)
+Formula: W = \int_C \vec{F} \cdot d\vec{r} = \int_C (F_x dx + F_y dy + F_z dz). \quad \nabla \times \vec{F} = 0 \implies W = \phi(B) - \phi(A)
+Summary: Parametric curve integration, path independence in conservative force fields, scalar potential $\vec{F} = \nabla \phi$.
+Type: NAT | Options: []
+Question: The work done by the conservative force $\vec{F} = (2xy + z^3)\hat{i} + x^2\hat{j} + 3xz^2\hat{k}$ along any path from $(0,0,0)$ to $(1,2,3)$ is:
+Correct Answer: 29
+Explanation: The potential function is $\phi(x,y,z) = x^2 y + xz^3$. Evaluating from $(0,0,0)$ to $(1,2,3)$: $\phi(1,2,3) - \phi(0,0,0) = (1^2 \times 2 + 1 \times 3^3) - 0 = 2 + 27 = 29$.
+Theory YT: Gajendra Purohit: Line Integrals & Conservative Vector Fields | https://www.youtube.com/watch?v=2j5SBLu_U1U
+PYQ YT: Kreatryx: Work Done & Line Integrals GATE PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 11/57] ID: M11 | Week: 3 | Domain: Engineering Mathematics ---
+Topic: Green's Theorem in Plane & Stokes' Theorem (Module: Vector Calculus)
+Formula: \oint_C (P dx + Q dy) = \iint_R \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx dy = \iint_S (\nabla \times \vec{F}) \cdot \hat{n} dS
+Summary: Converting closed boundary line integrals into surface curl flux integrals, circulation, planimeter area formula.
+Type: NAT | Options: []
+Question: Evaluate $\oint_C (3x - 4y) dx + (x + 2y) dy$ where $C$ is the circle $x^2 + y^2 = 4$ traversed counter-clockwise.
+Correct Answer: 62.8318
+Explanation: By Green's theorem: $\iint_R (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) dA = \iint_R (1 - (-4)) dA = 5 \times \text{Area}(R) = 5 \times \pi(2^2) = 20\pi \approx 62.8318$.
+Theory YT: Gajendra Purohit: Green's & Stokes' Theorem Explained | https://www.youtube.com/watch?v=2j5SBLu_U1U
+PYQ YT: Gate Academy: Green's & Stokes' Theorem 2-Mark PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 12/57] ID: M12 | Week: 3 | Domain: Engineering Mathematics ---
+Topic: Gauss Divergence Theorem (Module: Vector Calculus)
+Formula: \oiint_S \vec{F} \cdot \hat{n} dS = \iiint_V (\nabla \cdot \vec{F}) dV
+Summary: Converting outward closed surface flux into 3D volume divergence integrals, fluid expansion flux calculation.
+Type: NAT | Options: []
+Question: The outward flux of $\vec{F} = x\hat{i} + y\hat{j} + z\hat{k}$ over the sphere $x^2 + y^2 + z^2 = 9$ is:
+Correct Answer: 339.292
+Explanation: $\nabla \cdot \vec{F} = \frac{\partial x}{\partial x} + \frac{\partial y}{\partial y} + \frac{\partial z}{\partial z} = 1 + 1 + 1 = 3$. By Gauss Divergence Theorem: $\text{Flux} = 3 \times V_{sphere} = 3 \times (\frac{4}{3}\pi R^3) = 4\pi(3^3) = 108\pi \approx 339.292$.
+Theory YT: Gajendra Purohit: Gauss Divergence Theorem Shortcuts | https://www.youtube.com/watch?v=2j5SBLu_U1U
+PYQ YT: Gate Wallah: Gauss Divergence Theorem GATE PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 13/57] ID: M13 | Week: 4 | Domain: Engineering Mathematics ---
+Topic: 1st Order ODEs: Exact, Linear & Integrating Factors (Module: Differential Equations)
+Formula: \frac{dy}{dx} + P(x)y = Q(x) \implies y \cdot e^{\int P dx} = \int Q e^{\int P dx} dx + C. \quad M dx + N dy = 0 \text{ exact if } \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}
+Summary: Leibniz linear ODE integrating factors, Bernoulli non-linear reduction, exact differential criterion.
+Type: MCQ | Options: ['A) x^2 + 1', 'B) ln(x^2 + 1)', 'C) e^(x^2)', 'D) 2x']
+Question: The integrating factor for the differential equation $(x^2 + 1)\frac{dy}{dx} + 2xy = 4x^2$ is:
+Correct Answer: A) x^2 + 1
+Explanation: Dividing by $x^2+1$ yields $\frac{dy}{dx} + \frac{2x}{x^2+1}y = \frac{4x^2}{x^2+1}$. Integrating factor $IF = e^{\int \frac{2x}{x^2+1}dx} = e^{\ln(x^2+1)} = x^2 + 1$.
+Theory YT: Gajendra Purohit: First Order Linear Differential Equations | https://www.youtube.com/watch?v=2j5SBLu_U1U
+PYQ YT: Gate Wallah: 1st Order ODE Integrating Factor PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 14/57] ID: M14 | Week: 4 | Domain: Engineering Mathematics ---
+Topic: Higher Order Linear ODEs with Constant Coefficients (Module: Differential Equations)
+Formula: y(x) = y_c(x) + y_p(x), \quad y_p = \frac{1}{f(D)} X(x), \quad \frac{1}{D^2+a^2}\sin(ax) = -\frac{x}{2a}\cos(ax)
+Summary: Auxiliary characteristic roots (real distinct, repeated, complex conjugate), operator $1/f(D)$ shortcuts, resonance cases.
+Type: MCQ | Options: ['A) -(x/4) cos(2x)', 'B) (x/4) sin(2x)', 'C) -(1/4) cos(2x)', 'D) (x/2) cos(2x)']
+Question: The particular integral of $\frac{d^2 y}{dx^2} + 4y = \sin(2x)$ is:
+Correct Answer: A) -(x/4) cos(2x)
+Explanation: Since $D^2 + 4 = 0$ for $D = \pm 2j$, this is a resonance case. $y_p = \frac{1}{D^2+4}\sin(2x) = -\frac{x}{2(2)}\cos(2x) = -\frac{x}{4}\cos(2x)$.
+Theory YT: Gajendra Purohit: Higher Order ODEs, CF & Particular Integral | https://www.youtube.com/watch?v=2j5SBLu_U1U
+PYQ YT: Kreatryx: Complementary Function & PI GATE PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 15/57] ID: M15 | Week: 4 | Domain: Engineering Mathematics ---
+Topic: Cauchy-Euler Equations & Variation of Parameters (Module: Differential Equations)
+Formula: x^2 \frac{d^2 y}{dx^2} + a x \frac{dy}{dx} + b y = 0 \implies [D(D-1) + aD + b]y = 0 \ (x = e^z)
+Summary: Transforming variable-coefficient Cauchy-Euler equations to constant coefficients via logarithmic substitution $z = \ln x$, Wronskian method.
+Type: MCQ | Options: ['A) y = C1 x + C2 x^2', 'B) y = C1 + C2 x', 'C) y = C1 x^2 + C2 x^3', 'D) y = C1 cos(ln x) + C2 sin(ln x)']
+Question: The general solution of $x^2 y'' - 2x y' + 2y = 0$ for $x > 0$ is:
+Correct Answer: A) y = C1 x + C2 x^2
+Explanation: Let $x = e^z, D = d/dz$. Equation becomes $[D(D-1) - 2D + 2]y = [D^2 - 3D + 2]y = 0$. Roots are $m = 1, 2$. Thus $y(z) = C_1 e^z + C_2 e^{2z} = C_1 x + C_2 x^2$.
+Theory YT: Gajendra Purohit: Cauchy-Euler Differential Equations | https://www.youtube.com/watch?v=2j5SBLu_U1U
+PYQ YT: Gate Academy: Cauchy Euler 2-Mark GATE Problems | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 16/57] ID: M16 | Week: 4 | Domain: Engineering Mathematics ---
+Topic: Partial Differential Equations & Separation of Variables (Module: Differential Equations)
+Formula: \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2} \ (\text{Wave}), \quad \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2} \ (\text{Heat}), \quad \nabla^2 u = 0 \ (\text{Laplace})
+Summary: 1D Wave equation (hyperbolic), 1D Heat equation (parabolic), 2D Laplace equation (elliptic), boundary condition matching.
+Type: MCQ | Options: ['A) Parabolic PDE', 'B) Hyperbolic PDE', 'C) Elliptic PDE', 'D) Non-linear ODE']
+Question: The 1D Heat Conduction equation $\frac{\partial u}{\partial t} = k \frac{\partial^2 u}{\partial x^2}$ is classified mathematically as:
+Correct Answer: A) Parabolic PDE
+Explanation: For $A u_{xx} + B u_{xt} + C u_{tt} + \dots$, discriminant $B^2 - 4AC = 0^2 - 4(k)(0) = 0 \implies$ Parabolic PDE.
+Theory YT: Gajendra Purohit: Wave, Heat & Laplace Equations | https://www.youtube.com/watch?v=2j5SBLu_U1U
+PYQ YT: Gate Wallah: PDEs 1D Wave & Heat Equation PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 17/57] ID: M17 | Week: 4 | Domain: Engineering Mathematics ---
+Topic: Analytic Functions & Cauchy-Riemann Equations (Module: Complex Variables)
+Formula: u_x = v_y, \quad u_y = -v_x, \quad f'(z) = u_x + j v_x, \quad \nabla^2 u = 0 \ (\text{Harmonic})
+Summary: Cauchy-Riemann differentiability conditions, finding harmonic conjugate $v(x,y)$ given $u(x,y)$ via Milne-Thomson method.
+Type: MCQ | Options: ['A) 2xy + C', 'B) -2xy + C', 'C) x^2 + y^2 + C', 'D) xy + C']
+Question: If $u(x,y) = x^2 - y^2$ is the real part of an analytic function $f(z) = u + jv$, its imaginary harmonic conjugate $v(x,y)$ is:
+Correct Answer: A) 2xy + C
+Explanation: $u_x = 2x = v_y \implies v = 2xy + g(x)$. $u_y = -2y = -v_x = -(2y + g'(x)) \implies g'(x) = 0 \implies v(x,y) = 2xy + C$.
+Theory YT: Gajendra Purohit: Cauchy Riemann Equations & Harmonic Functions | https://www.youtube.com/watch?v=2j5SBLu_U1U
+PYQ YT: Gate Wallah: Analytic Functions & C-R Equations PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 18/57] ID: M18 | Week: 4 | Domain: Engineering Mathematics ---
+Topic: Cauchy's Integral Theorem & Residue Theorem (Module: Complex Variables)
+Formula: \oint_C f(z) dz = 2\pi j \sum \text{Res}(z_k), \quad \text{Res}(z_0) = \lim_{z\to z_0} (z-z_0) f(z)
+Summary: Singularities (poles, essential), contour integration along closed paths $|z|=R$, locating enclosed poles.
+Type: NAT | Options: []
+Question: Evaluate $\oint_{|z|=2} \frac{z+1}{z^2 - 1} dz$ traversed counter-clockwise.
+Correct Answer: 6.2832
+Explanation: $\frac{z+1}{z^2-1} = \frac{z+1}{(z-1)(z+1)} = \frac{1}{z-1}$. The only pole is at $z=1$ with residue 1. Enclosed inside $|z|=2$. Thus $\oint = 2\pi j \times 1 = 2\pi j$. The real value/magnitude is $2\pi \approx 6.2832$.
+Theory YT: Gajendra Purohit: Residue Theorem & Contour Integration | https://www.youtube.com/watch?v=2j5SBLu_U1U
+PYQ YT: Kreatryx: Cauchy Integral Formula & Residues PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 19/57] ID: M19 | Week: 4 | Domain: Engineering Mathematics ---
+Topic: Conditional Probability, Bayes' Theorem & Distributions (Module: Probability & Statistics)
+Formula: P(A|B) = \frac{P(B|A)P(A)}{P(B)}, \quad P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!} \ (\text{Poisson}), \quad f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+Summary: Independent events, total probability law, discrete distributions (Binomial, Poisson $\mu=\sigma^2=\lambda$), continuous distributions (Uniform, Exponential, Normal).
+Type: NAT | Options: []
+Question: In a manufacturing plant, machine A produces 60% and machine B produces 40% of items. Defect rates are 2% for A and 5% for B. An item chosen at random is defective. What is the probability it came from machine B?
+Correct Answer: 0.625
+Explanation: By Bayes' Theorem: $P(B|D) = \frac{P(D|B)P(B)}{P(D|A)P(A) + P(D|B)P(B)} = \frac{0.05 \times 0.40}{(0.02 \times 0.60) + (0.05 \times 0.40)} = \frac{0.020}{0.012 + 0.020} = \frac{0.020}{0.032} = 0.625$.
+Theory YT: Shrenik Jain: Probability, Bayes' Theorem & Distributions | https://www.youtube.com/watch?v=2j5SBLu_U1U
+PYQ YT: Gate Wallah: Probability & Bayes Rule Master PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 20/57] ID: M20 | Week: 4 | Domain: Engineering Mathematics ---
+Topic: Root Finding & Numerical Integration (Newton-Raphson, Simpson's) (Module: Numerical Methods)
+Formula: x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}, \quad I = \frac{h}{3}[(y_0+y_n) + 4\sum y_{odd} + 2\sum y_{even}] \ (\text{Simpson's 1/3})
+Summary: Newton-Raphson quadratic convergence ($p=2$), Trapezoidal rule (exact for linear), Simpson's 1/3 rule (exact up to cubic polynomials).
+Type: NAT | Options: []
+Question: Finding $\sqrt{7}$ using Newton-Raphson on $f(x) = x^2 - 7 = 0$ with initial guess $x_0 = 3.0$ yields $x_1$ equal to:
+Correct Answer: 2.6667
+Explanation: $x_1 = x_0 - \frac{x_0^2 - 7}{2x_0} = 3 - \frac{9 - 7}{6} = 3 - \frac{2}{6} = 3 - 0.3333 = 2.6667$.
+Theory YT: Gajendra Purohit: Newton Raphson & Numerical Integration | https://www.youtube.com/watch?v=2j5SBLu_U1U
+PYQ YT: Gate Academy: Newton Raphson & Simpson's 1/3 Rule PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 21/57] ID: S25 | Week: 5 | Domain: IN - Sensors & Industrial Transducers ---
+Topic: Static & Dynamic Sensor Characteristics & Error Propagation (Module: Sensor Fundamentals)
+Formula: \delta y = \sqrt{\sum_{i=1}^n \left(\frac{\partial f}{\partial x_i} \delta x_i\right)^2}, \quad \text{Limiting Error: } \frac{\delta y}{y} = \sum \left|\frac{\delta x_i}{x_i}\right|
+Summary: Sensitivity, resolution, threshold, dead zone, 1st/2nd order dynamic response, limiting error propagation.
+Type: NAT | Options: []
+Question: A resistor of $100\,\Omega \pm 2\,\Omega$ carries a current of $2\text{ A} \pm 0.1\text{ A}$. The power dissipated $P = I^2 R$ has uncertainty (in Watts) of:
+Correct Answer: 48
+Explanation: $P = 2^2 \times 100 = 400\text{ W}$. Relative uncertainty $\frac{\delta P}{P} = \sqrt{(2 \frac{\delta I}{I})^2 + (\frac{\delta R}{R})^2} = \sqrt{(2 \times \frac{0.1}{2})^2 + (\frac{2}{100})^2} = \sqrt{0.1^2 + 0.02^2} = \sqrt{0.0104} \approx 0.10198$. For limiting error sum: $\frac{\delta P}{P} = 2(5\%) + 2\% = 12\% \implies \delta P = 0.12 \times 400 = 48\text{ W}$.
+Theory YT: NPTEL: Sensor Characteristics (Sensitivity, Linearity, Hysteresis) | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Wallah: Sensor Error Propagation & Limiting Error PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 22/57] ID: S26 | Week: 5 | Domain: IN - Sensors & Industrial Transducers ---
+Topic: Piezoresistive Strain Gauges & Gauge Factor (Module: Resistive Transducers)
+Formula: GF = \frac{\Delta R / R}{\epsilon} = 1 + 2\nu + \frac{\Delta \rho / \rho}{\epsilon}
+Summary: Dimensional effect $1+2\nu$ vs piezoresistive resistivity change, metal foil ($GF \approx 2$) vs semiconductor ($GF \approx 100$) gauges.
+Type: NAT | Options: []
+Question: A metal strain gauge of nominal resistance $120\,\Omega$ and gauge factor $GF = 2.0$ is subjected to a tensile strain of $1000\,\mu\epsilon$. The change in resistance $\Delta R$ is:
+Correct Answer: 0.24
+Explanation: $\Delta R = GF \times R \times \epsilon = 2.0 \times 120 \times (1000 \times 10^{-6}) = 0.24\,\Omega$.
+Theory YT: All About Electronics: Strain Gauge Working Principle & Gauge Factor | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Academy: Strain Gauge Gauge Factor 2-Mark GATE Problems | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 23/57] ID: S27 | Week: 5 | Domain: IN - Sensors & Industrial Transducers ---
+Topic: Wheatstone Bridge Circuits (Quarter, Half & Full Bridge) (Module: Resistive Transducers)
+Formula: V_o = \frac{V_s}{4} \cdot GF \cdot \epsilon \ (\text{Quarter}), \quad V_o = \frac{V_s}{2} \cdot GF \cdot \epsilon \ (\text{Half}), \quad V_o = V_s \cdot GF \cdot \epsilon \ (\text{Full})
+Summary: Bridge balance $R_1 R_4 = R_2 R_3$, temperature compensation using dummy gauge, 4x sensitivity amplification in full push-pull bridge.
+Type: NAT | Options: []
+Question: A full Wheatstone bridge is configured with 4 active strain gauges ($GF = 2.0$) in push-pull arrangement. If excitation voltage is $10\text{ V}$ and strain is $500\,\mu\epsilon$, the output voltage $V_o$ in millivolts is:
+Correct Answer: 10
+Explanation: For a full bridge: $V_o = V_s \times GF \times \epsilon = 10\text{ V} \times 2.0 \times (500 \times 10^{-6}) = 0.010\text{ V} = 10\text{ mV}$.
+Theory YT: All About Electronics: Wheatstone Bridge Sensitivity & Linearity | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Wallah: Full Bridge Strain Gauge Sensitivity PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 24/57] ID: S28 | Week: 5 | Domain: IN - Sensors & Industrial Transducers ---
+Topic: RTD (Pt100), Callendar-Van Dusen Equation & Thermistors (NTC/PTC) (Module: Temperature Transducers)
+Formula: R_T = R_0(1 + \alpha T), \quad R_T = R_0 e^{\beta\left(\frac{1}{T} - \frac{1}{T_0}\right)} \ (\text{Thermistor}), \quad \alpha_{Pt100} = 0.00385 \ ^\circ\text{C}^{-1}
+Summary: Platinum RTD linearity, 3-wire and 4-wire lead resistance cancellation, NTC thermistor Steinhart-Hart equation.
+Type: NAT | Options: []
+Question: A Pt100 RTD with temperature coefficient $\alpha = 0.00385\,^\circ\text{C}^{-1}$ is measured at $100^\circ\text{C}$. Its resistance in Ohms is:
+Correct Answer: 138.5
+Explanation: $R(100) = R_0 (1 + \alpha T) = 100(1 + 0.00385 \times 100) = 100(1 + 0.385) = 138.5\,\Omega$.
+Theory YT: RealPars: RTD vs Thermocouple vs Thermistor Industrial Comparison | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Kreatryx: Pt100 2-Wire vs 3-Wire Bridge Lead Resistance PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 25/57] ID: S29 | Week: 6 | Domain: IN - Sensors & Industrial Transducers ---
+Topic: LVDT (Linear Variable Differential Transformer) & Synchros (Module: Inductive Transducers)
+Formula: V_o = V_{s1} - V_{s2}, \quad V_o = S \cdot x, \quad V_{null} \ne 0 \text{ due to harmonics \& stray capacitance}
+Summary: Differential secondary voltage, null voltage origin, phase-sensitive detector (PSD) for bidirectional displacement.
+Type: MCQ | Options: ['A) Harmonics in excitation voltage and stray capacitance between windings', 'B) Core hysteresis loss only', 'C) Large core displacement', 'D) DC excitation bias']
+Question: The primary cause of residual null voltage in an LVDT at core center position is:
+Correct Answer: A) Harmonics in excitation voltage and stray capacitance between windings
+Explanation: At exact null, fundamental voltages cancel, but higher-order harmonics in the AC source and inter-winding stray capacitances create an uncancelled residual voltage.
+Theory YT: All About Electronics: LVDT Construction, Working & Phase Demodulation | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Academy: LVDT Residual Voltage & Phase Shift PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 26/57] ID: S30 | Week: 6 | Domain: IN - Sensors & Industrial Transducers ---
+Topic: Piezoelectric Effect, Charge Amplifiers & Voltage Sensitivity (Module: Piezoelectric Transducers)
+Formula: q = d_{33} F, \quad g_{33} = \frac{d_{33}}{\epsilon}, \quad V_o = -\frac{q}{C_f} = -\frac{d_{33} F}{C_f}, \quad f_{low} = \frac{1}{2\pi R_f C_f}
+Summary: Direct vs converse piezoelectric effect, charge sensitivity $d$, voltage sensitivity $g$, charge amplifier eliminating cable capacitance dependence.
+Type: NAT | Options: []
+Question: A piezoelectric force sensor with charge sensitivity $d = 200\text{ pC/N}$ is connected to a charge amplifier with feedback capacitor $C_f = 10\text{ nF}$. For an applied dynamic force of $50\text{ N}$, the peak output voltage is:
+Correct Answer: -1.0
+Explanation: $V_o = -\frac{q}{C_f} = -\frac{d \cdot F}{C_f} = -\frac{200 \times 10^{-12} \times 50}{10 \times 10^{-9}} = -\frac{10000 \times 10^{-12}}{10 \times 10^{-9}} = -1.0\text{ V}$.
+Theory YT: All About Electronics: Piezoelectric Sensors & Charge Amplifier Design | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Wallah: Piezoelectric Charge Amplifier Frequency Response PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 27/57] ID: S31 | Week: 6 | Domain: IN - Sensors & Industrial Transducers ---
+Topic: Optical Encoders (Incremental/Absolute) & Hall Effect Transducers (Module: Optical & Magnetic Sensors)
+Formula: \text{Resolution} = \frac{360^\circ}{4N} \ (\text{Quadrature } 4\times), \quad V_H = \frac{I B}{n q t} = \frac{R_H I B}{t}, \quad R_H = \frac{1}{n q}
+Summary: Incremental quadrature channels A & B (90° phase shift for direction), absolute Gray-code disks, Hall voltage for current/magnetic field/position.
+Type: NAT | Options: []
+Question: An incremental optical encoder disk has $1000$ radial slots. When evaluated using a $4\times$ quadrature decoding circuit, its angular resolution in degrees is:
+Correct Answer: 0.09
+Explanation: $\text{Resolution} = \frac{360^\circ}{4 \times N} = \frac{360^\circ}{4 \times 1000} = \frac{360}{4000} = 0.09^\circ$.
+Theory YT: All About Electronics: Optical Encoders (Quadrature Decoding) & Hall Effect | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Academy: Quadrature Encoder Angular Resolution & Gray Code PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 28/57] ID: S32 | Week: 7 | Domain: IN - Sensors & Industrial Transducers ---
+Topic: Flowmeters (Differential Pressure, EM & Ultrasonic) & 4–20 mA Loops (Module: Flow & Industrial Transmitters)
+Formula: Q = C_d A_2 \sqrt{\frac{2\Delta P}{\rho(1-\beta^4)}}, \quad E = B L v \ (\text{EM Flow}), \quad I_{loop} = 4 + 16\left(\frac{\text{PV}-\text{LRV}}{\text{URV}-\text{LRV}}\right)\text{ mA}
+Summary: Bernoulli differential flowmeters (Orifice, Venturi), Faraday electromagnetic flowmeter for conductive fluids, 4-20 mA standard (4 mA live zero for wire break detection).
+Type: NAT | Options: []
+Question: A temperature transmitter is calibrated for $0^\circ\text{C}$ (LRV) to $200^\circ\text{C}$ (URV) with a $4\text{--}20\text{ mA}$ output. What is the loop current when measuring $75^\circ\text{C}$?
+Correct Answer: 10.0
+Explanation: $I = 4\text{ mA} + 16\text{ mA} \times \frac{75 - 0}{200 - 0} = 4 + 16 \times 0.375 = 4 + 6 = 10.0\text{ mA}$.
+Theory YT: RealPars: Industrial 4-20 mA Current Loops & Smart Transmitters | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Kreatryx: 4-20mA Current Loop Transmitter Load Resistance PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 29/57] ID: S33 | Week: 8 | Domain: IN - Sensors & Industrial Transducers ---
+Topic: 3-Op-Amp Instrumentation Amplifier & CMRR (Module: Signal Conditioning)
+Formula: V_o = \left(1 + \frac{2R_1}{R_g}\right)\frac{R_3}{R_2}(V_2 - V_1), \quad A_d = \left(1 + \frac{2R_1}{R_g}\right)\frac{R_3}{R_2}, \quad \text{CMRR} = 20\log_{10}\left|\frac{A_d}{A_{cm}}\right|
+Summary: High input impedance non-inverting input stage, single gain resistor $R_g$, differential gain with near-infinite common mode rejection.
+Type: NAT | Options: []
+Question: In a 3-Op-Amp Instrumentation Amplifier, $R_1 = 50\,\text{k}\Omega$, $R_3/R_2 = 1$. What value of gain resistor $R_g$ (in $\text{k}\Omega$) is required for a differential voltage gain $A_d = 101$?
+Correct Answer: 1.0
+Explanation: $A_d = 1 + \frac{2R_1}{R_g} \implies 101 = 1 + \frac{2(50)}{R_g} \implies 100 = \frac{100}{R_g} \implies R_g = 1.0\,\text{k}\Omega$.
+Theory YT: All About Electronics: 3-Op-Amp Instrumentation Amplifier Derivation & CMRR | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Wallah: In-Amp Gain & CMRR 2-Mark GATE Problems | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 30/57] ID: S34 | Week: 8 | Domain: IN - Sensors & Industrial Transducers ---
+Topic: Analog-to-Digital (ADC) & Digital-to-Analog (DAC) Converters (Module: Data Converters)
+Formula: V_{LSB} = \frac{V_{FS}}{2^n-1}, \quad T_{conv} = n T_{clk} \ (\text{SAR}), \quad T_{conv} = (2^n + K)T_{clk} \ (\text{Dual-Slope}), \quad \text{Flash: } 2^n-1 \text{ comparators}
+Summary: Flash (fastest, $O(1)$), SAR (balanced, $n$ clock cycles), Dual-Slope (highest noise rejection & accuracy, $2^{n+1}$ cycles), R-2R ladder DAC.
+Type: NAT | Options: []
+Question: An 8-bit Successive Approximation Register (SAR) ADC operates with a clock frequency of $1\text{ MHz}$. Its total conversion time is:
+Correct Answer: 8.0
+Explanation: For an $n$-bit SAR ADC, conversion time is $n$ clock periods: $T_{conv} = n \times T_{clk} = 8 \times \frac{1}{1\text{ MHz}} = 8\,\mu\text{s}$.
+Theory YT: Neso Academy: Flash, SAR, Dual Slope ADCs & R-2R DAC | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Academy: ADC Conversion Time & Resolution Comparison PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 31/57] ID: C49 | Week: 9 | Domain: IN - Circuits & Analog/Digital Electronics ---
+Topic: KCL/KVL, Nodal/Mesh & Network Theorems (Thevenin, Norton, MPT) (Module: Circuit Analysis)
+Formula: V_{th} = V_{oc}, \quad R_{th} = \frac{V_{oc}}{I_{sc}}, \quad P_{max} = \frac{V_{th}^2}{4 R_{th}}, \quad Z_L = Z_{th}^* \ (\text{AC MPT})
+Summary: Superposition with independent/dependent sources, Thevenin equivalent resistance via test voltage/current method $V_t/I_t$, maximum power matching.
+Type: NAT | Options: []
+Question: A DC source has an open-circuit voltage $V_{oc} = 24\text{ V}$ and short-circuit current $I_{sc} = 6\text{ A}$. The maximum power that can be delivered to a resistive load $R_L$ is:
+Correct Answer: 36
+Explanation: $R_{th} = \frac{V_{oc}}{I_{sc}} = \frac{24}{6} = 4\,\Omega$. Maximum power $P_{max} = \frac{V_{th}^2}{4 R_{th}} = \frac{24^2}{4 \times 4} = \frac{576}{16} = 36\text{ W}$.
+Theory YT: Neso Academy: Thevenin, Norton & Maximum Power Transfer Theorem | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Wallah: Network Theorems with Dependent Sources PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 32/57] ID: C50 | Week: 9 | Domain: IN - Circuits & Analog/Digital Electronics ---
+Topic: RL, RC & RLC Transient Response & AC Resonance (Module: Circuit Analysis)
+Formula: v(t) = v(\infty) + [v(0^+) - v(\infty)]e^{-t/\tau}, \quad \tau_{RC} = RC, \quad \tau_{RL} = \frac{L}{R}, \quad \omega_0 = \frac{1}{\sqrt{LC}}, \quad Q = \frac{1}{R}\sqrt{\frac{L}{C}}
+Summary: Inductor current continuity $i_L(0^-)=i_L(0^+)$, capacitor voltage continuity $v_C(0^-)=v_C(0^+)$, series vs parallel RLC quality factor.
+Type: NAT | Options: []
+Question: In a series RLC circuit with $R = 10\,\Omega$, $L = 100\text{ mH}$, and $C = 10\,\mu\text{F}$, the Quality factor $Q$ is:
+Correct Answer: 10.0
+Explanation: $Q = \frac{1}{R}\sqrt{\frac{L}{C}} = \frac{1}{10}\sqrt{\frac{100 \times 10^{-3}}{10 \times 10^{-6}}} = \frac{1}{10}\sqrt{10000} = \frac{100}{10} = 10.0$.
+Theory YT: Neso Academy: First Order RL & RC Transients Step Response | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Academy: Series & Parallel Resonance Q-Factor PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 33/57] ID: C51 | Week: 9 | Domain: IN - Circuits & Analog/Digital Electronics ---
+Topic: Op-Amp Linear Applications, Virtual Ground & Imperfections (Module: Analog Electronics)
+Formula: A_v = -\frac{R_f}{R_1} \ (\text{Inv}), \quad A_v = 1 + \frac{R_f}{R_1} \ (\text{Non-Inv}), \quad SR = \left.\frac{dv_o}{dt}\right|_{max} = 2\pi f V_m
+Summary: Inverting/non-inverting amplifiers, summing, differentiator, integrator, finite open loop gain, slew rate bandwidth limiting, input bias currents.
+Type: NAT | Options: []
+Question: An Op-Amp with slew rate $SR = 2\text{ V/}\mu\text{s}$ outputs a sinusoidal signal of peak amplitude $V_m = 5\text{ V}$. What is the maximum undistorted signal frequency in kHz?
+Correct Answer: 63.66
+Explanation: $SR = 2\pi f_{max} V_m \implies f_{max} = \frac{SR}{2\pi V_m} = \frac{2 \times 10^6}{2\pi \times 5} = \frac{2 \times 10^6}{31.4159} \approx 63662\text{ Hz} = 63.66\text{ kHz}$.
+Theory YT: All About Electronics: Op-Amp Virtual Ground, Slew Rate & Offset | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Kreatryx: Slew Rate Distortion & Input Offset Voltage PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 34/57] ID: C52 | Week: 10 | Domain: IN - Circuits & Analog/Digital Electronics ---
+Topic: Combinational Logic: K-Maps, Multiplexers & Decoders (Module: Digital Logic)
+Formula: 2^n:1 \text{ MUX realizes any } (n+1)\text{-variable function}, \quad \text{SOP/POS minimization via Gray-coded K-map}
+Summary: 4-variable K-maps with don't cares, implementing arbitrary logic using $4:1$ and $8:1$ MUX, decoder expansion.
+Type: NAT | Options: []
+Question: How many $4:1$ multiplexers are required to construct a $64:1$ multiplexer without additional logic gates?
+Correct Answer: 21
+Explanation: Stage 1: $\frac{64}{4} = 16$ MUXs. Stage 2: $\frac{16}{4} = 4$ MUXs. Stage 3: $\frac{4}{4} = 1$ MUX. Total MUXs = $16 + 4 + 1 = 21$.
+Theory YT: Neso Academy: Multiplexers, Decoders & Logic Implementation | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Wallah: Implementing Boolean Functions Using MUX PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 35/57] ID: C53 | Week: 10 | Domain: IN - Circuits & Analog/Digital Electronics ---
+Topic: Sequential Circuits: Flip-Flops, Setup/Hold Time & Counters (Module: Digital Logic)
+Formula: Q_{n+1} = J\overline{Q} + \overline{K}Q \ (\text{JK}), \quad Q_{n+1} = D, \quad T_{clk} \ge T_{cq} + T_{comb} + T_{setup}, \quad T_{hold} \le T_{cq} + T_{comb,min}
+Summary: Master-slave JK flip-flops, setup and hold time violation avoidance, synchronous vs ripple counter modulus, Johnson counter ($2n$ states).
+Type: NAT | Options: []
+Question: A 4-bit Johnson ring counter initialized to state '0000' will cycle through how many unique states?
+Correct Answer: 8
+Explanation: An $n$-bit Johnson (twisted ring) counter has modulus equal to $2n$. For $n=4$, total unique states = $2 \times 4 = 8$.
+Theory YT: Neso Academy: Flip-Flop Conversions, Timing & Synchronous Counters | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Academy: Mod-N Counter State Transition Analysis PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 36/57] ID: C60 | Week: 11 | Domain: IN - Signals & Control Systems ---
+Topic: Signal Classification, LTI Systems & Convolution (Module: Signals & Systems)
+Formula: y(t) = x(t) * h(t) = \int_{-\infty}^\infty x(\tau)h(t-\tau)d\tau, \quad \text{BIBO: } \int_{-\infty}^\infty |h(t)|dt < \infty
+Summary: Linearity, time-invariance, causality $h(t)=0 \ (t<0)$, stability, graphical convolution of rectangular pulses.
+Type: MCQ | Options: ['A) Triangular pulse of base width 4 centered at t = 2', 'B) Rectangular pulse of width 4', 'C) Exponential decay', 'D) Impulse train']
+Question: The convolution of two identical rectangular pulses $x(t) = u(t) - u(t-2)$ results in a:
+Correct Answer: A) Triangular pulse of base width 4 centered at t = 2
+Explanation: Convolving two identical rectangular pulses of duration $T=2$ yields a symmetric triangular pulse starting at $t=0$, peaking at $t=2$ with amplitude 2, and ending at $t=4$ (total base width 4).
+Theory YT: Neso Academy: LTI Systems, Continuous & Discrete Convolution | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Wallah: Convolution Integral & Energy/Power Signals PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 37/57] ID: C61 | Week: 11 | Domain: IN - Signals & Control Systems ---
+Topic: Laplace Transform, Region of Convergence (ROC) & Z-Transform (Module: Signals & Systems)
+Formula: X(s) = \int_0^\infty x(t)e^{-st}dt, \quad X(z) = \sum_{n=-\infty}^\infty x[n]z^{-n}, \quad \text{Causal Stability: Poles in LHP / Inside Unit Circle}
+Summary: Unilateral/bilateral Laplace transforms, initial & final value theorems, ROC properties, discrete Z-transform.
+Type: MCQ | Options: ['A) (s+3) / ((s+3)^2 + 16)', 'B) 4 / ((s+3)^2 + 16)', 'C) (s-3) / ((s-3)^2 + 16)', 'D) (s+3) / (s^2 + 16)']
+Question: The unilateral Laplace transform of $f(t) = e^{-3t} \cos(4t) u(t)$ is:
+Correct Answer: A) (s+3) / ((s+3)^2 + 16)
+Explanation: By frequency shifting theorem: $\mathcal{L}\{\cos(4t)\} = \frac{s}{s^2+16} \implies \mathcal{L}\{e^{-3t}\cos(4t)\} = \frac{s+3}{(s+3)^2 + 16}$.
+Theory YT: Brian Douglas: Laplace Transform & ROC Physical Meaning | https://www.youtube.com/user/ControlLectures
+PYQ YT: Kreatryx: Inverse Laplace & Z-Transform ROC Stability PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 38/57] ID: C62 | Week: 12 | Domain: IN - Signals & Control Systems ---
+Topic: Block Diagrams, Signal Flow Graphs (Mason's Gain) & 2nd Order Response (Module: Control Systems)
+Formula: T(s) = \frac{\sum P_k \Delta_k}{\Delta}, \quad M_p = e^{-\frac{\pi\zeta}{\sqrt{1-\zeta^2}}} \times 100\%, \quad t_s \approx \frac{4}{\zeta\omega_n} \ (2\% \text{ band}), \quad t_p = \frac{\pi}{\omega_d}
+Summary: Mason's gain formula loop determinant $\Delta = 1 - \sum L_1 + \sum L_2 \dots$, damping ratio $\zeta$, natural frequency $\omega_n$, steady-state error constants.
+Type: NAT | Options: []
+Question: A standard unity feedback system has open-loop transfer function $G(s) = \frac{25}{s(s+6)}$. The peak overshoot $M_p$ to a unit step input is approximately:
+Correct Answer: 9.5
+Explanation: Closed-loop denominator $s^2 + 6s + 25 = 0 \implies \omega_n = 5\text{ rad/s}, 2\zeta\omega_n = 6 \implies \zeta = \frac{6}{10} = 0.6$. $M_p = e^{-\frac{0.6\pi}{\sqrt{1-0.36}}} = e^{-\frac{1.88496}{0.8}} = e^{-2.3562} \approx 0.0948 = 9.5\%$.
+Theory YT: Brian Douglas: Mason's Gain Formula & 2nd Order Time Response | https://www.youtube.com/user/ControlLectures
+PYQ YT: Gate Wallah: Second Order Damping Ratio & Peak Overshoot PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 39/57] ID: C63 | Week: 12 | Domain: IN - Signals & Control Systems ---
+Topic: Routh-Hurwitz Stability, Root Locus & Frequency Response (Bode/Nyquist) (Module: Control Systems)
+Formula: N = P - Z, \quad GM = -20\log_{10}|G(j\omega_{pc})|, \quad PM = 180^\circ + \angle G(j\omega_{gc}), \quad \theta_a = \frac{(2q+1)180^\circ}{P-Z}
+Summary: Routh array row of zeros, breakaway points $dK/ds = 0$, gain margin and phase margin, Nyquist contour encirclement about $-1+j0$.
+Type: MCQ | Options: ['A) 1 time counter-clockwise', 'B) 1 time clockwise', 'C) 0 times', 'D) 2 times clockwise']
+Question: An open-loop transfer function has 1 open-loop pole in the right half of the s-plane ($P=1$). For the closed-loop system to be stable, the Nyquist plot must encircle the $(-1 + j0)$ point:
+Correct Answer: A) 1 time counter-clockwise
+Explanation: By the Nyquist criterion $N = P - Z$. For closed-loop stability, $Z = 0 \implies N = P - 0 = 1 - 0 = +1$, which signifies exactly 1 counter-clockwise encirclement of $(-1+j0)$.
+Theory YT: Brian Douglas: Root Locus, Bode Plots & Nyquist Stability Criterion | https://www.youtube.com/user/ControlLectures
+PYQ YT: Gate Academy: Nyquist Encirclements N = P - Z Master GATE PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 40/57] ID: C64 | Week: 12 | Domain: IN - Signals & Control Systems ---
+Topic: Compensators (Lead/Lag) & State Space Analysis (Module: Control Systems)
+Formula: \dot{x} = Ax + Bu, \quad y = Cx + Du, \quad \Phi(t) = \mathcal{L}^{-1}\{(sI-A)^{-1}\}, \quad \text{rank}[B \ AB \dots A^{n-1}B] = n
+Summary: Lead compensator (improves transient/stability $\phi_m$), Lag compensator (improves steady-state accuracy), State transition matrix $\Phi(t)=e^{At}$, Kalman controllability/observability.
+Type: MCQ | Options: ['A) [[0, 1], [1, -3]]', 'B) [[1, 0], [0, 1]]', 'C) [[0, -2], [1, -3]]', 'D) [[1, 1], [0, 0]]']
+Question: A system is described by state matrix $A = \begin{bmatrix} 0 & 1 \\ -2 & -3 \end{bmatrix}$ and input vector $B = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$. The controllability matrix $Q_c = [B \ AB]$ is:
+Correct Answer: A) [[0, 1], [1, -3]]
+Explanation: $AB = \begin{bmatrix} 0 & 1 \\ -2 & -3 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ -3 \end{bmatrix}$. Thus $Q_c = [B \ AB] = \begin{bmatrix} 0 & 1 \\ 1 & -3 \end{bmatrix}$. Since $\det(Q_c) = 0 - 1 = -1 \ne 0$, system is completely controllable.
+Theory YT: Brian Douglas: State Space Equations, Controllability & Observability | https://www.youtube.com/user/ControlLectures
+PYQ YT: Kreatryx: State Transition Matrix & Kalman Rank Test PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 41/57] ID: R73 | Week: 13 | Domain: RA - Robot Kinematics & Jacobians ---
+Topic: 3D Rotation Matrices SO(3) & Euler Angles (Module: Spatial Descriptions)
+Formula: R^T R = I, \quad \det(R) = +1, \quad R_z(\theta) = \begin{bmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{bmatrix}
+Summary: Special Orthogonal group $SO(3)$, orthogonal unit vector columns, Z-Y-X Euler angles, Roll-Pitch-Yaw conventions.
+Type: MCQ | Options: ['A) [2, -1, 3]^T', 'B) [-2, 1, 3]^T', 'C) [1, -2, 3]^T', 'D) [-1, 2, 3]^T']
+Question: A coordinate frame is rotated by $90^\circ$ about the fixed Z-axis. The coordinates of point $P = [1, 2, 3]^T$ expressed in the new rotated frame are:
+Correct Answer: A) [2, -1, 3]^T
+Explanation: $P_{new} = R_z(90^\circ)^T P = \begin{bmatrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} = \begin{bmatrix} 2 \\ -1 \\ 3 \end{bmatrix}$.
+Theory YT: Angela Sodemann / RoboGrok: 3D Rotation Matrices & Coordinate Transformations | https://www.youtube.com/playlist?list=PLn8PRpmsu08rzs_sY_pI8b8_b5n6WkS9F
+PYQ YT: Gate Academy: Robotics SO(3) Rotation Matrix GATE PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 42/57] ID: R74 | Week: 13 | Domain: RA - Robot Kinematics & Jacobians ---
+Topic: Homogeneous Transformation Matrices SE(3) (Module: Spatial Descriptions)
+Formula: T = \begin{bmatrix} R & p \\ 0 & 1 \end{bmatrix}, \quad T^{-1} = \begin{bmatrix} R^T & -R^T p \\ 0 & 1 \end{bmatrix}
+Summary: 4x4 Homogeneous transformation matrices in Special Euclidean group $SE(3)$, combining rotation and translation, inverse transformation formula.
+Type: MCQ | Options: ['A) [-4, 3, 0]^T', 'B) [-3, -4, 0]^T', 'C) [4, -3, 0]^T', 'D) [3, 4, 0]^T']
+Question: If transformation matrix $T = \begin{bmatrix} 0 & -1 & 0 & 3 \\ 1 & 0 & 0 & 4 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}$, the position vector of frame 0 in frame 1 coordinates ($-R^T p$) is:
+Correct Answer: A) [-4, 3, 0]^T
+Explanation: $R^T = \begin{bmatrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix}$. $-R^T p = - \begin{bmatrix} 0(3) + 1(4) \\ -1(3) + 0(4) \\ 0 \end{bmatrix} = - \begin{bmatrix} 4 \\ -3 \\ 0 \end{bmatrix} = \begin{bmatrix} -4 \\ 3 \\ 0 \end{bmatrix}$.
+Theory YT: RoboGrok: Homogeneous Transformations 4x4 Matrices | https://www.youtube.com/playlist?list=PLn8PRpmsu08rzs_sY_pI8b8_b5n6WkS9F
+PYQ YT: Gate Wallah: Homogeneous Transformation 4x4 Multiplications PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 43/57] ID: R75 | Week: 14 | Domain: RA - Robot Kinematics & Jacobians ---
+Topic: Denavit-Hartenberg (D-H) 4-Parameter Convention (Module: Robot Kinematics)
+Formula: A_i = \text{Rot}_{z,\theta_i} \text{Trans}_{z,d_i} \text{Trans}_{x,a_i} \text{Rot}_{x,\alpha_i} = \begin{bmatrix} \cos\theta_i & -\sin\theta_i\cos\alpha_i & \sin\theta_i\sin\alpha_i & a_i\cos\theta_i \\ \sin\theta_i & \cos\theta_i\cos\alpha_i & -\cos\theta_i\sin\alpha_i & a_i\sin\theta_i \\ 0 & \sin\alpha_i & \cos\alpha_i & d_i \\ 0 & 0 & 0 & 1 \end{bmatrix}
+Summary: 4 standard D-H parameters: joint angle $\theta_i$ ($z_{i-1}$ axis), link offset $d_i$ ($z_{i-1}$ axis), link length $a_i$ ($x_i$ axis), link twist $\alpha_i$ ($x_i$ axis).
+Type: MCQ | Options: ['A) z_{i-1} to z_i measured about x_i', 'B) x_{i-1} to x_i measured about z_i', 'C) z_i to z_{i-1} measured about y_i', 'D) x_i to y_i measured about z_i']
+Question: In the standard D-H convention, the link twist angle $\alpha_i$ is defined as the angle from:
+Correct Answer: A) z_{i-1} to z_i measured about x_i
+Explanation: By D-H definition, $\alpha_i$ is the angle of rotation from axis $z_{i-1}$ to axis $z_i$ measured around the common normal axis $x_i$.
+Theory YT: Angela Sodemann / RoboGrok: Denavit-Hartenberg (DH) Parameters Step-by-Step | https://www.youtube.com/playlist?list=PLn8PRpmsu08rzs_sY_pI8b8_b5n6WkS9F
+PYQ YT: Gate Academy: DH Table Extraction for 2R and 3R Robots PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 44/57] ID: R76 | Week: 14 | Domain: RA - Robot Kinematics & Jacobians ---
+Topic: Forward & Inverse Kinematics (Planar 2R/3R & SCARA) (Module: Robot Kinematics)
+Formula: x = l_1 \cos\theta_1 + l_2 \cos(\theta_1+\theta_2), \quad y = l_1 \sin\theta_1 + l_2 \sin(\theta_1+\theta_2), \quad \cos\theta_2 = \frac{x^2+y^2-l_1^2-l_2^2}{2 l_1 l_2}
+Summary: End-effector forward mapping, geometric/algebraic inverse kinematics solving for $\theta_1, \theta_2$, elbow-up vs elbow-down dual configurations.
+Type: MCQ | Options: ['A) +90 deg or -90 deg', 'B) 0 deg only', 'C) +45 deg or -45 deg', 'D) +180 deg']
+Question: A planar 2R robot manipulator has link lengths $l_1 = 1\text{ m}$ and $l_2 = 1\text{ m}$. If the end-effector is at $(x, y) = (\sqrt{2}, 0)$, the possible values of joint angle $\theta_2$ are:
+Correct Answer: A) +90 deg or -90 deg
+Explanation: $\cos\theta_2 = \frac{x^2 + y^2 - l_1^2 - l_2^2}{2 l_1 l_2} = \frac{2 + 0 - 1 - 1}{2(1)(1)} = \frac{0}{2} = 0 \implies \theta_2 = \pm 90^\circ$.
+Theory YT: RoboGrok: 2-Link Planar Arm Forward & Inverse Kinematics | https://www.youtube.com/playlist?list=PLn8PRpmsu08rzs_sY_pI8b8_b5n6WkS9F
+PYQ YT: Kreatryx: 2R Robot Inverse Kinematics Elbow-Up/Down Solutions PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 45/57] ID: R77 | Week: 15 | Domain: RA - Robot Kinematics & Jacobians ---
+Topic: Manipulator Jacobian Matrix & Kinematic Singularities (Module: Differential Kinematics)
+Formula: \dot{X} = J(q)\dot{q}, \quad J_i = \begin{bmatrix} z_{i-1} \times (p_e - p_{i-1}) \\ z_{i-1} \end{bmatrix} \ (\text{Revolute}), \quad \det(J(q)) = 0 \implies \text{Singularity}
+Summary: Linear and angular velocity propagation, geometric Jacobian, singularity configurations where robot loses 1 or more degrees of freedom, workspace boundary vs interior singularities.
+Type: MCQ | Options: ['A) theta_2 = 0 deg or 180 deg', 'B) theta_1 = 90 deg', 'C) theta_1 + theta_2 = 0', 'D) theta_2 = 90 deg']
+Question: For a planar 2R robot, the Jacobian is $J(\theta) = \begin{bmatrix} -l_1 s_1 - l_2 s_{12} & -l_2 s_{12} \\ l_1 c_1 + l_2 c_{12} & l_2 c_{12} \end{bmatrix}$. The arm is in a singular configuration when:
+Correct Answer: A) theta_2 = 0 deg or 180 deg
+Explanation: $\det(J) = (-l_1 s_1 - l_2 s_{12})(l_2 c_{12}) - (-l_2 s_{12})(l_1 c_1 + l_2 c_{12}) = l_1 l_2 (s_{12}c_1 - c_{12}s_1) = l_1 l_2 \sin(\theta_2)$. Singularities occur where $\det(J) = 0 \implies \sin\theta_2 = 0 \implies \theta_2 = 0^\circ \text{ or } 180^\circ$ (fully extended or folded back).
+Theory YT: Angela Sodemann / RoboGrok: Velocity Kinematics & Manipulator Jacobian | https://www.youtube.com/playlist?list=PLn8PRpmsu08rzs_sY_pI8b8_b5n6WkS9F
+PYQ YT: Gate Wallah: Robot Singularity Points det(J)=0 GATE PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 46/57] ID: R78 | Week: 15 | Domain: RA - Dynamics, Actuators & Robot Vision ---
+Topic: Euler-Lagrange Formulation & Mass Inertia Matrix (Module: Robot Dynamics)
+Formula: M(q)\ddot{q} + C(q,\dot{q})\dot{q} + G(q) = \tau, \quad L = K - P, \quad \frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right) - \frac{\partial L}{\partial q_i} = \tau_i
+Summary: Lagrangian kinetic energy $K$ and potential energy $P$, symmetric positive definite inertia matrix $M(q)$, Christoffel Coriolis/centrifugal matrix $C(q,\dot{q})$, gravity vector $G(q)$.
+Type: MCQ | Options: ['A) Symmetric and positive definite', 'B) Skew-symmetric', 'C) Diagonal and constant', 'D) Singular']
+Question: In the standard dynamic equation of a robot manipulator $M(q)\ddot{q} + C(q,\dot{q})\dot{q} + G(q) = \tau$, the inertia matrix $M(q)$ is always:
+Correct Answer: A) Symmetric and positive definite
+Explanation: Kinetic energy is quadratic $K = \frac{1}{2}\dot{q}^T M(q) \dot{q} > 0$ for any non-zero $\dot{q}$, which guarantees that $M(q)$ is symmetric and strictly positive definite.
+Theory YT: RoboGrok: Robot Dynamics Euler-Lagrange Equations of Motion | https://www.youtube.com/playlist?list=PLn8PRpmsu08rzs_sY_pI8b8_b5n6WkS9F
+PYQ YT: Gate Academy: 2-Link Robot Equations of Motion Lagrange PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 47/57] ID: R79 | Week: 16 | Domain: RA - Dynamics, Actuators & Robot Vision ---
+Topic: Stepper Motors, DC Servos, BLDC Motors & Harmonic Drives (Module: Actuators & Drives)
+Formula: \beta = \frac{360^\circ}{m N_r}, \quad n = \frac{\beta f}{360^\circ} \ [\text{rev/s}], \quad T_m = K_t I_a, \quad E_b = K_b \omega_m
+Summary: Variable reluctance and hybrid stepper motors, microstepping, permanent magnet DC servos, brushless DC electronic commutation, zero-backlash harmonic drive gears.
+Type: NAT | Options: []
+Question: A 4-phase hybrid stepper motor has a rotor with 50 teeth ($N_r = 50$). Its step angle $\beta$ is:
+Correct Answer: 1.8
+Explanation: $\beta = \frac{360^\circ}{m N_r} = \frac{360^\circ}{4 \times 50} = \frac{360}{200} = 1.8^\circ$.
+Theory YT: RealPars: Stepper Motors vs Servo Motors Working Principle | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Kreatryx: Stepper Motor Step Angle & Pulse Frequency PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 48/57] ID: R80 | Week: 17 | Domain: RA - Dynamics, Actuators & Robot Vision ---
+Topic: Camera Calibration, Pinhole Model & Image Processing (Module: Robot Vision & Perception)
+Formula: s \begin{bmatrix} u \\ v \\ 1 \end{bmatrix} = K [R | t] \begin{bmatrix} X \\ Y \\ Z \\ 1 \end{bmatrix}, \quad K = \begin{bmatrix} f_x & 0 & c_x \\ 0 & f_y & c_y \\ 0 & 0 & 1 \end{bmatrix}
+Summary: Pinhole perspective projection, intrinsic camera matrix $K$ (focal length, principal point), extrinsic parameters $[R|t]$, Sobel/Canny spatial gradient filters.
+Type: NAT | Options: []
+Question: In a pinhole camera model, a real-world object of height $2\text{ m}$ located at a distance of $10\text{ m}$ along the optical axis forms an image on a sensor of focal length $f = 50\text{ mm}$. The image height on the sensor in mm is:
+Correct Answer: 10.0
+Explanation: By similar triangles: $\frac{h_{image}}{f} = \frac{H_{object}}{Z} \implies h_{image} = \frac{H \cdot f}{Z} = \frac{2000\text{ mm} \times 50\text{ mm}}{10000\text{ mm}} = 10.0\text{ mm}$.
+Theory YT: Steve Brunton: Computer Vision & Camera Calibration Pinhole Model | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Wallah: Pinhole Camera Matrix & Edge Detection PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 49/57] ID: R81 | Week: 18 | Domain: RA - Industrial Automation & PLCs ---
+Topic: PLC Programming (Ladder Logic), Timers, Counters & SCADA (Module: Industrial Automation)
+Formula: \text{Series Contacts} \equiv \text{AND}, \quad \text{Parallel Contacts} \equiv \text{OR}, \quad \text{NC Contact} \equiv \text{NOT}
+Summary: IEC 61131-3 languages, normally open (NO) / normally closed (NC) rungs, latching/seal-in circuits, on-delay timers (TON), SCADA telemetry.
+Type: MCQ | Options: ['A) OR function', 'B) AND function', 'C) XOR function', 'D) NAND function']
+Question: In PLC Ladder Logic, two Normally Open (NO) contacts connected in parallel with an output coil represent which Boolean logic function?
+Correct Answer: A) OR function
+Explanation: Parallel branches in ladder logic provide alternate current paths from the left power rail to the output coil, which corresponds directly to a Boolean OR operation ($Y = A + B$).
+Theory YT: RealPars: PLC Ladder Logic Programming Basics (NO, NC, TON, CTU) | https://www.youtube.com/watch?v=04a37Ue7e_Y
+PYQ YT: Gate Academy: PLC Ladder Logic Boolean Equivalence PYQs | https://www.youtube.com/watch?v=04a37Ue7e_Y
+
+--- [TOPIC 50/57] ID: A89 | Week: 1 | Domain: General Aptitude (Weekend) ---
+Topic: Number Theory, Cyclicity & Progressions (Module: Quantitative Aptitude)
+Formula: T_n = a + (n-1)d, \quad S_n = \frac{n}{2}[2a+(n-1)d], \quad \text{Unit Digit of } x^n \text{ (Cyclicity 4)}
+Summary: Divisibility tests, prime factorization, finding units digit using power cyclicity modulo 4, AP/GP series sums.
+Type: NAT | Options: []
+Question: The units digit of $7^{95} - 3^{58}$ is:
+Correct Answer: 4
+Explanation: Cyclicity of 7 is 4: $95 = 4(23) + 3 \implies 7^3 = 343 \implies 3$. Cyclicity of 3 is 4: $58 = 4(14) + 2 \implies 3^2 = 9$. Unit digit $= (13 - 9) = 4$.
+Theory YT: Feel Free To Learn: Number System, Cyclicity & Divisibility Rules | https://www.youtube.com/@FeelFreetoLearn
+PYQ YT: CareerRide: GATE Number Theory & Series PYQs | https://www.youtube.com/@CareerRide
+
+--- [TOPIC 51/57] ID: A90 | Week: 3 | Domain: General Aptitude (Weekend) ---
+Topic: Percentages, Profit-Loss & Simple/Compound Interest (Module: Quantitative Aptitude)
+Formula: \text{Profit \%} = \frac{SP - CP}{CP}\times 100, \quad \text{Net \%} = a + b + \frac{ab}{100}, \quad A = P\left(1 + \frac{r}{100}\right)^n
+Summary: Fraction-to-percentage conversions, successive percentage formula, markup and discount relations.
+Type: NAT | Options: []
+Question: If the price of a commodity increases by 25%, by what percentage must consumption be reduced so that total expenditure remains unchanged?
+Correct Answer: 20.0
+Explanation: $\text{Reduction} = \frac{r}{100+r} \times 100\% = \frac{25}{125} \times 100 = 20.0\%$.
+Theory YT: Feel Free To Learn: Percentage & Profit Loss Shortcuts | https://www.youtube.com/@FeelFreetoLearn
+PYQ YT: Gate Wallah: Aptitude Percentages & Profit Loss PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 52/57] ID: A91 | Week: 5 | Domain: General Aptitude (Weekend) ---
+Topic: Time, Work, Speed, Distance & Relative Motion (Module: Quantitative Aptitude)
+Formula: \frac{1}{T_{total}} = \frac{1}{A} + \frac{1}{B}, \quad \text{Speed} = \frac{\text{Distance}}{\text{Time}}, \quad v_{rel} = v_1 + v_2 \ (\text{Opposite})
+Summary: LCM efficiency method for pipes/cisterns, train crossing bridge/pole, upstream/downstream boat speeds.
+Type: NAT | Options: []
+Question: Pipe A can fill a tank in 6 hours and Pipe B in 8 hours. If both pipes are opened together, in how many hours will the tank be filled?
+Correct Answer: 3.4286
+Explanation: Total capacity = $\text{LCM}(6, 8) = 24$ units. Rate A = $4\text{ u/h}$, Rate B = $3\text{ u/h}$. Combined rate = $7\text{ u/h}$. Time = $\frac{24}{7} \approx 3.4286\text{ hours}$.
+Theory YT: Feel Free To Learn: Time and Work, Speed Distance Shortcuts | https://www.youtube.com/@FeelFreetoLearn
+PYQ YT: Gate Academy: Time Speed Distance & Trains PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 53/57] ID: A92 | Week: 7 | Domain: General Aptitude (Weekend) ---
+Topic: Deductive Reasoning: Syllogisms & Venn Diagrams (Module: Analytical Reasoning)
+Formula: \text{Venn Logic: 'All A are B' } (A \subseteq B), \quad \text{'Some A are B' } (A \cap B \ne \emptyset), \quad \text{'No A are B' } (A \cap B = \emptyset)
+Summary: Evaluating categorical statements, valid conclusions, either-or complementary pairs, Venn overlap rules.
+Type: MCQ | Options: ['A) Some engineers are innovators', 'B) All innovators are scientists', 'C) Some innovators are scientists', 'D) No engineer is an innovator']
+Question: Statements: (1) All engineers are scientists. (2) Some scientists are innovators. Which conclusion logically follows?
+Correct Answer: C) Some innovators are scientists
+Explanation: Statement 2 directly converts: 'Some scientists are innovators' $\iff$ 'Some innovators are scientists'. No definite link connects engineers and innovators.
+Theory YT: Feel Free To Learn: Syllogisms Venn Diagram Rules | https://www.youtube.com/@FeelFreetoLearn
+PYQ YT: CareerRide: Syllogisms & Deductive Logic PYQs | https://www.youtube.com/@CareerRide
+
+--- [TOPIC 54/57] ID: A93 | Week: 9 | Domain: General Aptitude (Weekend) ---
+Topic: 2D Paper Folding, Mirror Images & 3D Spatial Projections (Module: Spatial Aptitude)
+Formula: \text{Mirror Reflection (Horizontal inversion), Water Image (Vertical inversion), Opposite Faces on Unfolded Cube}
+Summary: Unfolded dice opposite face rule (alternate positions), paper punch hole symmetric unfolding, 2D/3D rotational invariance.
+Type: MCQ | Options: ['A) Face 3', 'B) Face 5', 'C) Face 2', 'D) Face 4']
+Question: When a standard 6-sided dice is unfolded into an open cross pattern, faces 1, 3, and 5 appear in a single column. The face opposite to face 1 is:
+Correct Answer: B) Face 5
+Explanation: In an unfolded strip/column, opposite faces always occupy alternate positions (separated by exactly 1 intervening face). Hence face 1 is opposite to face 5.
+Theory YT: CareerRide: Spatial Aptitude Paper Folding & 3D Cube Views | https://www.youtube.com/@CareerRide
+PYQ YT: Gate Academy: Spatial Aptitude 2-Mark Official GATE PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 55/57] ID: A94 | Week: 11 | Domain: General Aptitude (Weekend) ---
+Topic: English Grammar, Conditionals & Critical Reasoning (Module: Verbal Ability)
+Formula: \text{Third Conditional: 'If + Past Perfect (had done) } \dots \text{ would have + Past Participle'}
+Summary: Subject-verb concord, conditional clauses, parallel sentence structures, main idea identification, premise-assumption-conclusion links.
+Type: MCQ | Options: ['A) If the engineer had calibrated the sensor, the measurement error would have been avoided.', 'B) If the engineer calibrated the sensor, the measurement error would have been avoided.', 'C) If the engineer had calibrated the sensor, the measurement error will be avoided.', 'D) If the engineer would have calibrated the sensor, the measurement error was avoided.']
+Question: Choose the grammatically correct sentence:
+Correct Answer: A) If the engineer had calibrated the sensor, the measurement error would have been avoided.
+Explanation: Standard 3rd conditional rule for unreal past events: 'If + past perfect (had calibrated) ... would have + past participle (would have been avoided)'.
+Theory YT: CareerRide: English Grammar Rules & Critical Reasoning for GATE | https://www.youtube.com/@CareerRide
+PYQ YT: Gate Wallah: Verbal Ability Tenses & Sentence Correction PYQs | https://www.youtube.com/watch?v=2j5SBLu_U1U
+
+--- [TOPIC 56/57] ID: REV01 | Week: 22 | Domain: Comprehensive Revision & Mock Sprints ---
+Topic: High-Weightage Multi-Subject Marathon & Formula Blitz (Module: Formula Marathon)
+Formula: \text{Complete Formula Blitz: Math, Sensors, In-Amps, Control Systems, Robot Kinematics}
+Summary: Rapid formula recall, high-speed problem solving across top-weightage areas (Sensors, Control, Robot D-H, Linear Algebra).
+Type: NAT | Options: []
+Question: A system with open loop transfer function $G(s) = \frac{10}{s(s+1)(s+2)}$ has a phase crossover frequency $\omega_{pc} = \sqrt{2}\text{ rad/s}$. The Gain Margin $GM$ in dB is:
+Correct Answer: -4.44
+Explanation: $|G(j\sqrt{2})| = \frac{10}{\sqrt{2} \cdot \sqrt{1+2} \cdot \sqrt{4+2}} = \frac{10}{\sqrt{2} \cdot \sqrt{3} \cdot \sqrt{6}} = \frac{10}{6} = 1.667$. $GM = -20\log_{10}(1.667) = -20(0.2218) = -4.44\text{ dB}$ (Unstable system).
+Theory YT: Gate Wallah: Complete Fast Track Revision Marathon | https://www.youtube.com/
+PYQ YT: Gate Academy: Top 100 Multi-Subject GATE PYQs | https://www.youtube.com/
+
+--- [TOPIC 57/57] ID: REV02 | Week: 23 | Domain: Comprehensive Revision & Mock Sprints ---
+Topic: Full-Length IIT Madras Pattern 3-Hour Mock CBT Practice (Module: Full-Length Mock CBTs)
+Formula: \text{Strategy: Round 1 (1-M Easy) } \to \text{Round 2 (2-M High Conf) } \to \text{Round 3 (NAT/MSQ Review)}
+Summary: Simulated 65-question full-length GATE Computer Based Test under 180-minute countdown with Virtual Calculator drill.
+Type: MCQ | Options: ['A) 45 to 55 minutes', 'B) 120 minutes', 'C) 15 minutes', 'D) 90 minutes']
+Question: In a 3-hour GATE CBT examination containing 65 questions (100 marks), the recommended time allocated for the first pass (Round 1: 1-mark easy questions) is:
+Correct Answer: A) 45 to 55 minutes
+Explanation: Allocating 45–55 minutes to sweep through all direct 1-mark questions locks in 30–35 high-accuracy marks early, leaving 90 minutes for complex 2-mark analytical NATs and 30 minutes for review.
+Theory YT: IIT Madras Official GATE Mock CBT Interface & Strategy | https://gate2027.iitm.ac.in
+PYQ YT: Kreatryx: 3-Hour Full-Length Mock CBT Time Management & Accuracy | https://www.youtube.com/
